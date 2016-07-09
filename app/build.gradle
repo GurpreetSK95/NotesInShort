@@ -31,11 +31,11 @@ dependencies {
     compile 'com.firebase:firebase-client-android:2.5.2+'
     compile 'com.github.clans:fab:1.6.2'
     compile 'com.frosquivel:magicalcamera:1.0'
-    compile 'com.afollestad.material-dialogs:core:0.8.6.1'
-    compile 'com.github.d-max:spots-dialog:0.4@aar'
-    compile 'com.google.code.gson:gson:2.6.2'
-    compile 'com.squareup.retrofit2:retrofit:2.0.2'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+
+
 }
 
 apply plugin: 'com.google.gms.google-services'
