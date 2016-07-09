@@ -23,19 +23,23 @@ public class PDFviewerActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String file = intent.getExtras().toString();
 
-        pdfView.fromAsset(file)
-                //.pages(0, 2, 1, 3, 3, 3) //all pages are displayed by default
-                .enableSwipe(true)
-                .enableDoubletap(true)
-                .swipeVertical(false)
-                .defaultPage(1)
-                .showMinimap(false)
-                .onError(new OnErrorListener() {
-                    @Override
-                    public void onError(Throwable t) {
-                        t.printStackTrace();
-                    }
-                })
-                .load();
+        try {
+            pdfView.fromAsset(file)
+                    //.pages(0, 2, 1, 3, 3, 3) //all pages are displayed by default
+                    .enableSwipe(true)
+                    .enableDoubletap(true)
+                    .swipeVertical(false)
+                    .defaultPage(1)
+                    .showMinimap(false)
+                    .onError(new OnErrorListener() {
+                        @Override
+                        public void onError(Throwable t) {
+                            t.printStackTrace();
+                        }
+                    })
+                    .load();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

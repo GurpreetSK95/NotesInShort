@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.Manifest;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -27,7 +28,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by mayank on 9/7/16.
@@ -37,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView rv;
     NoteAdapter adapter;
     ArrayList<Note> list = new ArrayList<>();
+    ArrayList listItems = new ArrayList();
+    private File[] imagelist;
+    String[] pdflist;
 
     String TAG = MainActivity.class.getSimpleName();
     FirebaseUser user;
@@ -47,8 +53,10 @@ public class MainActivity extends AppCompatActivity {
     long unixTime;
     private int RESIZE_PHOTO_PIXELS_PERCENTAGE = 1000;
     final private int CAMERA_PERMISSIONS_REQUEST = 123;
+    final private int SAVE_IMAGE_PERMISSIONS_REQUEST = 456;
 
-
+    private ArrayList<File> fileList = new ArrayList<>();
+    private File root;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         rv.setLayoutManager(manager);
         //rv.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         rv.setAdapter(adapter);
+        root = new File(Environment.getExternalStorageDirectory()
+                .getAbsolutePath());
 
         rv.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), rv, new ClickListener() {
             @Override
@@ -94,13 +104,19 @@ public class MainActivity extends AppCompatActivity {
                 openCamera();
             }
         });
-
         choose_document.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chooseDocument();        //does not scan image, sends PDF for view
+            }
+        });
+
+ /*       choose_document.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 open_document();
             }
-        });
+        });*/
 
         //Removed mAuth get instance code
 
@@ -120,6 +136,21 @@ public class MainActivity extends AppCompatActivity {
         magicalCamera.takePhoto();
         magicalCamera.selectedPicture("my_header_name");
 
+    }
+
+    public void getPermissionToSaveImage() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (shouldShowRequestPermissionRationale(
+                        Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                }
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        SAVE_IMAGE_PERMISSIONS_REQUEST);
+            }
+        }
     }
 
 
@@ -184,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onLongPress(MotionEvent e) {
                     View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
-                    if (child != null && clickListener != null) {
+                    if ((child != null) && (clickListener != null)) {
                         clickListener.onLongClick(child, recyclerView.getChildPosition(child));
                     }
                 }
@@ -207,36 +238,91 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
         }
 
     }
 
-    public void scanImage(View v) {
-        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath());
-        walkdir(file);
-        Toast.makeText(this, "FAB", Toast.LENGTH_SHORT).show();
+    public void chooseDocument() {
+        //File filePath = new File("/sdcard/aaa.pdf");
+        //walkdir(file);
+        //Intent intent = new Intent(this, PDFviewerActivity.class);
+        //intent.putExtra("File", filePath);
+        //startActivity(intent);
+        walkdir(Environment.getExternalStorageDirectory());
+        //Toast.makeText(this, "FAB", Toast.LENGTH_SHORT).show();
     }
 
     public void walkdir(File dir) {
-        String pdfPattern = ".pdf";
-
+        /*String pdfPattern = ".pdf";
         File listFile[] = dir.listFiles();
-
         if (listFile != null) {
             for (File aListFile : listFile) {
                 if (aListFile.isDirectory()) {
+                    Log.v(TAG, aListFile.toString());
                     walkdir(aListFile);
                 } else {
                     if (aListFile.getName().endsWith(pdfPattern)) {
                         //Do what ever u want
+                        Log.v(TAG, "clicked send data PDF");
                         Intent intent = new Intent(this, PDFviewerActivity.class);
                         intent.putExtra("File", aListFile);
-                        startActivity(intent);
+                        //startActivity(intent);
+                        Toast.makeText(this , aListFile.toString(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         }
+        String pdfPattern = ".pdf";
+
+        File FileList[] = dir.listFiles();
+
+        if (FileList != null) {
+            for (int i = 0; i < FileList.length; i++) {
+
+                if (FileList[i].isDirectory()) {
+                    walkdir(FileList[i]);
+                } else {
+                    if (FileList[i].getName().endsWith(pdfPattern)){
+                        //here you have that file.
+                        Log.v(TAG, FileList[i].getName());
+                    }
+                }
+            }
+        }
+
+        for(File file : files){
+            Log.v(TAG, file.getName());
+        }
+*/
+
+        fileList = getfile(root);
+        for (int i = 0; i < fileList.size(); i++) {
+            if (!fileList.get(i).isDirectory()) {
+                Log.v(TAG, fileList.get(i).getName());
+            } else {
+                Log.v(TAG, fileList.get(i).getName());
+            }
+        }
+    }
+
+    public ArrayList<File> getfile(File dir) {
+        try {
+            File listFile[] = dir.listFiles();
+            if (listFile != null && listFile.length > 0) {
+                for (File aListFile : listFile) {
+                    if (aListFile.isDirectory()) {
+                        fileList.add(aListFile);
+                        getfile(aListFile);
+                    } else {
+                        if (aListFile.getName().endsWith(".pdf"))
+                            fileList.add(aListFile);
+                    }
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return fileList;
     }
 
     public void getPermissionToOpenCamera() {
@@ -270,7 +356,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(MainActivity.this, "Sorry your photo dont write in devide, please contact with fabian7593@gmail and say this error", Toast.LENGTH_SHORT).show();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(this, "Didn\'t take image", Toast.LENGTH_SHORT).show();
         }
