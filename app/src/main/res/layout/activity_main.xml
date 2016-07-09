@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -10,7 +10,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         fab:menu_animationDelayPerItem="50"
         fab:menu_backgroundColor="@android:color/transparent"
@@ -19,10 +18,10 @@
         fab:menu_colorPressed="#E75043"
         fab:menu_colorRipple="#99FFFFFF"
         fab:menu_fab_hide_animation="@anim/hide_to_bottom"
-        fab:menu_fab_label="your_label_here"
+        fab:menu_fab_label="Options"
         fab:menu_fab_show_animation="@anim/show_from_bottom"
         fab:menu_fab_size="normal"
-        fab:menu_icon="@raw/fab"
+        fab:menu_icon="@mipmap/fab"
         fab:menu_labels_colorNormal="#333333"
         fab:menu_labels_colorPressed="#444444"
         fab:menu_labels_colorRipple="#66FFFFFF"
@@ -53,7 +52,6 @@
             android:id="@+id/camera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"
             fab:fab_label="Camera"
             fab:fab_size="mini" />
 
@@ -61,7 +59,6 @@
             android:id="@+id/choose_document"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"
             fab:fab_label="Choose document"
             fab:fab_size="mini" />
 
@@ -72,4 +69,4 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
-</FrameLayout>
+</RelativeLayout>

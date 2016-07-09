@@ -1,7 +1,11 @@
 package com.notesinshort.notesinshort;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -23,6 +27,7 @@ import com.google.firebase.auth.FirebaseUser;
  */
 public class MainActivity extends AppCompatActivity {
 
+    final private int CAMERA_PERMISSIONS_REQUEST = 123;
     String TAG = MainActivity.class.getSimpleName();
     FirebaseUser user;
     FloatingActionButton camera, choose_document;
@@ -33,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
     //a regular quality, if you declare with 50 is a worst quality and if you declare with 4000 is the better quality
     //only need to play with this variable (0 to 4000 ... or in other words, worst to better :D)
-
     private int RESIZE_PHOTO_PIXELS_PERCENTAGE = 1000;
 
     @Override
@@ -48,10 +52,14 @@ public class MainActivity extends AppCompatActivity {
 
         magicalCamera = new MagicalCamera(this, RESIZE_PHOTO_PIXELS_PERCENTAGE);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            getPermissionToOpenCamera();
+        }
 
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 openCamera();
             }
         });
@@ -79,8 +87,22 @@ public class MainActivity extends AppCompatActivity {
     public void openCamera() {
 
         magicalCamera.takePhoto();
-        magicalCamera.selectedPicture("my_header_name");
 
+    }
+
+    public void getPermissionToOpenCamera() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (shouldShowRequestPermissionRationale(
+                        Manifest.permission.CAMERA)) {
+                }
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                requestPermissions(new String[]{Manifest.permission.CAMERA},
+                        CAMERA_PERMISSIONS_REQUEST);
+            }
+        }
     }
 
     @Override
