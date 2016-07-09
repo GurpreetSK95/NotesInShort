@@ -4,21 +4,21 @@ from flask import Flask, jsonify, abort, request, make_response, url_for
 from flask.ext.httpauth import HTTPBasicAuth
 
 app = Flask(__name__, static_url_path="")
-auth = HTTPBasicAuth()
+#auth = HTTPBasicAuth()
 
 
-@auth.get_password
-def get_password(username):
-    if username == 'miguel':
-        return 'python'
-    return None
+# @auth.get_password
+# def get_password(username):
+#     if username == 'miguel':
+#         return 'python'
+#     return None
 
 
-@auth.error_handler
-def unauthorized():
-    # return 403 instead of 401 to prevent browsers from displaying the default
-    # auth dialog
-    return make_response(jsonify({'error': 'Unauthorized access'}), 403)
+# @auth.error_handler
+# def unauthorized():
+#     # return 403 instead of 401 to prevent browsers from displaying the default
+#     # auth dialog
+#     return make_response(jsonify({'error': 'Unauthorized access'}), 403)
 
 
 @app.errorhandler(400)
@@ -58,14 +58,14 @@ def make_public_task(task):
     return new_task
 
 
-@app.route('/todo/api/v1.0/tasks', methods=['GET'])
-@auth.login_required
-def get_tasks():
-    return jsonify({'tasks': [make_public_task(task) for task in tasks]})
+@app.route('/api/dump', methods=['GET'])
+# @auth.login_required
+# def get_tasks():
+#     return jsonify({'tasks': [make_public_task(task) for task in tasks]})
 
 
 @app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['GET'])
-@auth.login_required
+#@auth.login_required
 def get_task(task_id):
     task = [task for task in tasks if task['id'] == task_id]
     if len(task) == 0:
@@ -74,7 +74,7 @@ def get_task(task_id):
 
 
 @app.route('/todo/api/v1.0/tasks', methods=['POST'])
-@auth.login_required
+#@auth.login_required
 def create_task():
     if not request.json or 'title' not in request.json:
         abort(400)
@@ -89,7 +89,7 @@ def create_task():
 
 
 @app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['PUT'])
-@auth.login_required
+#@auth.login_required
 def update_task(task_id):
     task = [task for task in tasks if task['id'] == task_id]
     if len(task) == 0:
@@ -112,7 +112,7 @@ def update_task(task_id):
 
 
 @app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['DELETE'])
-@auth.login_required
+#@auth.login_required
 def delete_task(task_id):
     task = [task for task in tasks if task['id'] == task_id]
     if len(task) == 0:
