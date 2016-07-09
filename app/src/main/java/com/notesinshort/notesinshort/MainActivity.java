@@ -1,19 +1,30 @@
 package com.notesinshort.notesinshort;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.content.AsyncTaskLoader;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -35,6 +46,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.frosquivel.magicalcamera.MagicalCamera;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
@@ -48,6 +60,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+import java.util.concurrent.RunnableFuture;
+
+import dmax.dialog.SpotsDialog;
 
 
 /**
@@ -70,7 +86,10 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionMenu menu;
     MagicalCamera magicalCamera;
     ImageView imageView;
-    ProgressDialog progress;
+    //ProgressDialog progress;
+    ListView lv;
+    ListAdapter listAdapter;
+    ArrayList<String> files = new ArrayList<>();
 
 
     //a regular quality, if you declare with 50 is a worst quality and if you declare with 4000 is the better quality
@@ -115,8 +134,7 @@ public class MainActivity extends AppCompatActivity {
         //view = (LinearLayout) findViewById(R.id.view);
 
         //getting SDcard root path
-        root = new File(Environment.getExternalStorageDirectory()
-                .getAbsolutePath());
+        root = new File(Environment.getExternalStorageDirectory().getAbsolutePath());
 
         magicalCamera = new MagicalCamera(this, RESIZE_PHOTO_PIXELS_PERCENTAGE);
 
@@ -128,22 +146,37 @@ public class MainActivity extends AppCompatActivity {
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 openCamera();
             }
         });
 
+        SpotsDialog dialog = new SpotsDialog(MainActivity.this);
+        dialog.show();
+        getfile(root);
         choose_document.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menu.close(true);
-                progress = new ProgressDialog(getApplicationContext());
-                progress.setMessage("Downloading Music");
-                progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                progress.setIndeterminate(true);
                 show_documents();
+                new MaterialDialog.Builder(MainActivity.this)
+                        .title("Choose file to share")
+                        .items(files)
+                        .itemsCallback(new MaterialDialog.ListCallback() {
+                            @Override
+                            public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+                                //Toast.makeText(getApplicationContext(), which + " is selected!", Toast.LENGTH_SHORT).show();
+
+                                //CHANGE API ENDPOINT HERE
+
+                                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                                shareIntent.setType("text/*");
+                                startActivity(shareIntent);
+                            }
+                        })
+                        .show();
             }
         });
+        dialog.dismiss();
+        //listAdapter = new ArrayAdapter<String>(this, R.layout.popup_listview_item, files);
 
         //Removed mAuth get instance code
 
@@ -247,9 +280,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openCamera() {
-
         magicalCamera.takePhoto();
-
     }
 
     public void getPermissionToOpenCamera() {
@@ -297,18 +328,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void show_documents() {
-        getfile(root);
 
-        for (int i = 0; i < fileList.size(); i++) {
+        for (int i = fileList.size()-1; i > 0; i--) {
             //System.out.println(fileList.get(i).getName());
             if (!fileList.get(i).isDirectory() && fileList.get(i).getName().endsWith(".pdf")) {
                 Log.v(TAG, fileList.get(i).getName());
+                files.add((fileList.get(i).getName()));
                 //textView.setTextColor(Color.parseColor("#FF0000"));
-            } else {
-                //view.addView(textView);
             }
         }
-        progress.dismiss();
+
+//        progress.dismiss();
     }
 
     public ArrayList<File> getfile(File dir) {
@@ -345,6 +375,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean writePhotoFile(Bitmap bitmap, String photoName, String directoryName,
                                    Bitmap.CompressFormat format, boolean autoIncrementNameByDate) {
+        boolean saved = false;
         if (bitmap == null) {
             return false;
         } else {
@@ -379,8 +410,16 @@ public class MainActivity extends AppCompatActivity {
                 getApplicationContext().sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,
                         Uri.parse("file://" + f.getAbsolutePath())));
 
-                return true;
+                saved =  true;
             } catch (Exception ev) {
+                saved =  false;
+            }
+            if(saved){
+                //code
+
+                return true;
+            }
+            else{
                 return false;
             }
         }
