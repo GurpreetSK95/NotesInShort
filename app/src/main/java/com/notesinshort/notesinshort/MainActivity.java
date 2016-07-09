@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager manager = new LinearLayoutManager(getApplicationContext());
         rv.setItemAnimator(new DefaultItemAnimator());
         rv.setLayoutManager(manager);
-        rv.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        //rv.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         rv.setAdapter(adapter);
         rv.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), rv, new ClickListener() {
             @Override
@@ -140,4 +140,9 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+    public void scanImage(View v){
+        Toast.makeText(this, "FAB", Toast.LENGTH_SHORT).show();
+    }
+
 }

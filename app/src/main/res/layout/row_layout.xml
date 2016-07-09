@@ -6,26 +6,25 @@
     android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp">
 
-    <TextView
-        android:id="@+id/title"
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        card_view:cardCornerRadius="4dp"
+        android:elevation="8dp"
+        android:minHeight="100dp"
+        android:background="#F8BBD0">
 
-    <TextView
-        android:id="@+id/genre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/title"
-        android:layout_gravity="center" />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    <TextView
-        android:id="@+id/year"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/genre"
-        android:layout_gravity="center|end" />
+    </android.support.v7.widget.CardView>
 
 </RelativeLayout>

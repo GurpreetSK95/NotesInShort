@@ -30,8 +30,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.MyViewHolder>{
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Note movie = list.get(position);
         holder.title.setText(movie.getTitle());
-        holder.genre.setText(movie.getGenre());
-        holder.year.setText(movie.getYear());
+        //holder.genre.setText(movie.getGenre());
+        //holder.year.setText(movie.getYear());
     }
 
     @Override
@@ -46,8 +46,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.MyViewHolder>{
         public MyViewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.title);
-            genre = (TextView) itemView.findViewById(R.id.genre);
-            year = (TextView) itemView.findViewById(R.id.year);
+            //genre = (TextView) itemView.findViewById(R.id.genre);
+            //year = (TextView) itemView.findViewById(R.id.year);
         }
 
     }
