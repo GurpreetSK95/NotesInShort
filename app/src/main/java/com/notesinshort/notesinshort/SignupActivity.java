@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.MainThread;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
@@ -58,7 +57,7 @@ public class SignupActivity extends Activity {
                     // User is signed in
                     Log.d("FireAuth", "onAuthStateChanged:signed_in:" + user.getUid());
 
-                    Log.d(TAG, "Already Logged in: "+user.getEmail());
+                    Log.d(TAG, "Already Logged in: " + user.getEmail());
 
                 } else {
                     // User is signed out
@@ -124,8 +123,7 @@ public class SignupActivity extends Activity {
                         if (!task.isSuccessful()) {
                             Toast.makeText(SignupActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                        }
-                        else {
+                        } else {
 
                             hideProgressDialog();
                             setProgressBarIndeterminateVisibility(false);
@@ -138,7 +136,7 @@ public class SignupActivity extends Activity {
                     }
                 });
 
-            }
+    }
 
 
 }
