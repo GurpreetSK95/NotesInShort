@@ -3,8 +3,11 @@ package com.notesinshort.notesinshort;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,13 +16,19 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.frosquivel.magicalcamera.MagicalCamera;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 
 /**
@@ -28,6 +37,10 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
     final private int CAMERA_PERMISSIONS_REQUEST = 123;
+    final private int SAVE_IMAGE_PERMISSIONS_REQUEST = 456;
+    Bitmap.CompressFormat jpeg = MagicalCamera.JPEG;
+    Bitmap.CompressFormat png = MagicalCamera.PNG;
+    Bitmap.CompressFormat webp = MagicalCamera.WEBP;
     String TAG = MainActivity.class.getSimpleName();
     FirebaseUser user;
     FloatingActionButton camera, choose_document;
@@ -54,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             getPermissionToOpenCamera();
+            getPermissionToSaveImage();
         }
 
         camera.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +119,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void getPermissionToSaveImage() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (shouldShowRequestPermissionRationale(
+                        Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                }
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        SAVE_IMAGE_PERMISSIONS_REQUEST);
+            }
+        }
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -114,17 +143,58 @@ public class MainActivity extends AppCompatActivity {
         //with this form you obtain the bitmap
         imageView.setImageBitmap(magicalCamera.getMyPhoto());
 
-        //if you need save your bitmap in device use this method
-        unixTime = System.currentTimeMillis() / 1000L;
-
-        if (magicalCamera.savePhotoInMemoryDevice(magicalCamera.getMyPhoto(), String.valueOf(unixTime), "NotesInShort", MagicalCamera.JPEG, true)) {
-            Toast.makeText(MainActivity.this, "The photo is save in device, please check this", Toast.LENGTH_SHORT).show();
+        if (writePhotoFile(magicalCamera.getMyPhoto(), "Test", "NotesInShort", MagicalCamera.JPEG, true)) {
+            Log.d(TAG, "File has been saved.");
         } else {
-            Toast.makeText(MainActivity.this, "Sorry your photo dont write in devide, please contact with fabian7593@gmail and say this error", Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "Error in saving file.");
         }
     }
 
     public void open_document() {
+
+    }
+
+    private boolean writePhotoFile(Bitmap bitmap, String photoName, String directoryName,
+                                   Bitmap.CompressFormat format, boolean autoIncrementNameByDate) {
+        if (bitmap == null) {
+            return false;
+        } else {
+            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+            bitmap.compress(format, 100, bytes);
+
+            DateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
+            String date = df.format(Calendar.getInstance().getTime());
+
+            String newPhotoName;
+            if (format == png) {
+                newPhotoName = autoIncrementNameByDate ? photoName + "_" + date + ".png" : photoName + ".png";
+            } else if (format == jpeg) {
+                newPhotoName = autoIncrementNameByDate ? photoName + "_" + date + ".jpeg" : photoName + ".jpeg";
+            } else if (format == webp) {
+                newPhotoName = autoIncrementNameByDate ? photoName + "_" + date + ".webp" : photoName + ".webp";
+            } else {
+                newPhotoName = photoName;
+            }
+
+            File wallpaperDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES + "/" + directoryName + "/");
+            if (!wallpaperDirectory.exists()) {
+                wallpaperDirectory.mkdirs();
+            }
+            File f = new File(wallpaperDirectory, newPhotoName);
+
+            try {
+                f.createNewFile();
+                FileOutputStream fo = new FileOutputStream(f);
+                fo.write(bytes.toByteArray());
+                fo.close();
+                getApplicationContext().sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,
+                        Uri.parse("file://" + f.getAbsolutePath())));
+
+                return true;
+            } catch (Exception ev) {
+                return false;
+            }
+        }
 
     }
 
@@ -153,4 +223,5 @@ public class MainActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
+
 }
