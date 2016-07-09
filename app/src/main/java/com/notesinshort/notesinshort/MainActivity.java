@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -29,10 +30,13 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.frosquivel.magicalcamera.MagicalCamera;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -282,14 +286,29 @@ public class MainActivity extends AppCompatActivity {
             uploadFile(Uri.parse("file://" + f.getAbsolutePath()));
 
             FirebaseStorage storage = FirebaseStorage.getInstance();
-            StorageReference storageReference = storage.getReferenceFromUrl("gs://notesinshort-d46ec.appspot.com");
-
-            StorageReference imagesRef = storageReference.child("images");
-
-
+            StorageReference storageRef = storage.getReferenceFromUrl("gs://notesinshort-d46ec.appspot.com");
 
             Uri u = Uri.fromFile(f);
-            StorageReference spaceRef = storageReference.child("images/" + f.getAbsolutePath());
+            StorageReference riversRef = storageRef.child("images/"+u.getLastPathSegment());
+            UploadTask uploadTask = riversRef.putFile(u);
+
+            // Register observers to listen for when the download is done or if it fails
+            uploadTask.addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    // Handle unsuccessful uploads
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
+                    Uri downloadUrl = taskSnapshot.getDownloadUrl();
+
+                    Log.d(TAG, "Download url for firebase image = " + downloadUrl);
+
+                }
+            });
+
 
 
         } else {
@@ -372,7 +391,7 @@ public class MainActivity extends AppCompatActivity {
             if (!wallpaperDirectory.exists()) {
                 wallpaperDirectory.mkdirs();
             }
-            File f = new File(wallpaperDirectory, newPhotoName);
+            f = new File(wallpaperDirectory, newPhotoName);
 
             try {
                 f.createNewFile();
