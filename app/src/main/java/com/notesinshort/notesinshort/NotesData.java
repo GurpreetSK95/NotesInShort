@@ -13,9 +13,9 @@ public class NotesData {
     private String image;
     @SerializedName("positive_sentiment_score")
     private String reaction;
-    @SerializedName("")
-    private String ;
-    @SerializedName("")
-    private String ;
+    //@SerializedName("")
+    //private String ;
+    //@SerializedName("")
+    //private String ;
 
 }

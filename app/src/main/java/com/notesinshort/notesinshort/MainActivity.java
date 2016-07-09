@@ -1,46 +1,38 @@
 package com.notesinshort.notesinshort;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.GestureDetector;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Toast;
-
-import java.net.URI;
-import java.util.ArrayList;
 import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.Toast;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.frosquivel.magicalcamera.MagicalCamera;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -50,6 +42,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import dmax.dialog.SpotsDialog;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -67,12 +60,11 @@ import retrofit2.http.Part;
  */
 public class MainActivity extends AppCompatActivity {
 
+    final private int CAMERA_PERMISSIONS_REQUEST = 123;
+    final private int SAVE_IMAGE_PERMISSIONS_REQUEST = 456;
     RecyclerView rv;
     NoteAdapter adapter;
     ArrayList<Note> list = new ArrayList<>();
-
-    final private int CAMERA_PERMISSIONS_REQUEST = 123;
-    final private int SAVE_IMAGE_PERMISSIONS_REQUEST = 456;
     Bitmap.CompressFormat jpeg = MagicalCamera.JPEG;
     Bitmap.CompressFormat png = MagicalCamera.PNG;
     Bitmap.CompressFormat webp = MagicalCamera.WEBP;
@@ -84,8 +76,6 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView;
     ProgressDialog progress;
     File f;
-
-
     //a regular quality, if you declare with 50 is a worst quality and if you declare with 4000 is the better quality
     //only need to play with this variable (0 to 4000 ... or in other words, worst to better :D)
     private int RESIZE_PHOTO_PIXELS_PERCENTAGE = 1000;
@@ -93,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
     private File root;
     private ArrayList<File> fileList = new ArrayList<File>();
+    private ArrayList<String> files = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,7 +148,37 @@ public class MainActivity extends AppCompatActivity {
                 progress.setMessage("Downloading Music");
                 progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
                 progress.setIndeterminate(true);
-                show_documents();
+
+                SpotsDialog dialog = new SpotsDialog(MainActivity.this);
+                dialog.show();
+                getfile(root);
+                choose_document.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        show_documents();
+                        new MaterialDialog.Builder(MainActivity.this)
+                                .title("Choose file to share")
+                                .items(files)
+                                .itemsCallback(new MaterialDialog.ListCallback() {
+                                    @Override
+                                    public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+                                        //Toast.makeText(getApplicationContext(), which + " is selected!", Toast.LENGTH_SHORT).show();
+
+                                        //CHANGE API ENDPOINT HERE
+
+                                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                                        shareIntent.setType("text/*");
+                                        startActivity(shareIntent);
+                                    }
+                                })
+                                .show();
+                    }
+                });
+                dialog.dismiss();
+
+                progress.dismiss();
+
+                //show_documents();
             }
         });
 
@@ -213,55 +234,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public interface ClickListener {
-        void onClick(View view, int position);
-
-        void onLongClick(View view, int position);
-    }
-
-    public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
-
-        private GestureDetector gestureDetector;
-        private MainActivity.ClickListener clickListener;
-
-        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final MainActivity.ClickListener clickListener) {
-            this.clickListener = clickListener;
-            gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onSingleTapUp(MotionEvent e) {
-                    return true;
-                }
-
-                @Override
-                public void onLongPress(MotionEvent e) {
-                    View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
-                    if (child != null && clickListener != null) {
-                        clickListener.onLongClick(child, recyclerView.getChildPosition(child));
-                    }
-                }
-            });
-        }
-
-        @Override
-        public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-
-            View child = rv.findChildViewUnder(e.getX(), e.getY());
-            if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
-                clickListener.onClick(child, rv.getChildPosition(child));
-            }
-            return false;
-        }
-
-        @Override
-        public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-        }
-
-        @Override
-        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-        }
-    }
-
     public void openCamera() {
 
         magicalCamera.takePhoto();
@@ -308,6 +280,18 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "File has been saved.");
             imageView.setImageBitmap(magicalCamera.getMyPhoto());
             uploadFile(Uri.parse("file://" + f.getAbsolutePath()));
+
+            FirebaseStorage storage = FirebaseStorage.getInstance();
+            StorageReference storageReference = storage.getReferenceFromUrl("gs://notesinshort-d46ec.appspot.com");
+
+            StorageReference imagesRef = storageReference.child("images");
+
+
+
+            Uri u = Uri.fromFile(f);
+            StorageReference spaceRef = storageReference.child("images/" + f.getAbsolutePath());
+
+
         } else {
             Log.d(TAG, "Error in saving file.");
         }
@@ -320,9 +304,11 @@ public class MainActivity extends AppCompatActivity {
             //System.out.println(fileList.get(i).getName());
             if (!fileList.get(i).isDirectory() && fileList.get(i).getName().endsWith(".pdf")) {
                 Log.v(TAG, fileList.get(i).getName());
+                files.add(fileList.get(i).getName());
                 //textView.setTextColor(Color.parseColor("#FF0000"));
             } else {
                 //view.addView(textView);
+                Log.d(TAG, "Inside else of show documents.");
             }
         }
         progress.dismiss();
@@ -430,13 +416,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public interface FileUploadService {
-        @Multipart
-        @POST("upload")
-        Call<ResponseBody> upload(@Part("description") RequestBody description,
-                                  @Part MultipartBody.Part file);
-    }
-
     private void uploadFile(Uri fileUri) {
         // create upload service client
         FileUploadService service =
@@ -476,6 +455,62 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("Upload error:", t.getMessage());
             }
         });
+    }
+
+    public interface ClickListener {
+        void onClick(View view, int position);
+
+        void onLongClick(View view, int position);
+    }
+
+    public interface FileUploadService {
+        @Multipart
+        @POST("upload")
+        Call<ResponseBody> upload(@Part("description") RequestBody description,
+                                  @Part MultipartBody.Part file);
+    }
+
+    public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
+
+        private GestureDetector gestureDetector;
+        private MainActivity.ClickListener clickListener;
+
+        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final MainActivity.ClickListener clickListener) {
+            this.clickListener = clickListener;
+            gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
+                @Override
+                public boolean onSingleTapUp(MotionEvent e) {
+                    return true;
+                }
+
+                @Override
+                public void onLongPress(MotionEvent e) {
+                    View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
+                    if (child != null && clickListener != null) {
+                        clickListener.onLongClick(child, recyclerView.getChildPosition(child));
+                    }
+                }
+            });
+        }
+
+        @Override
+        public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            View child = rv.findChildViewUnder(e.getX(), e.getY());
+            if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
+                clickListener.onClick(child, rv.getChildPosition(child));
+            }
+            return false;
+        }
+
+        @Override
+        public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+        }
+
+        @Override
+        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+        }
     }
 
 }
