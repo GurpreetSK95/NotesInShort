@@ -1,8 +1,8 @@
-# Notes In Short Web
+# Notes In Short 
 
-Notes In Short Web is a sample app demonstrating how to build a JavaScript/Web app with the Firebase Platform.
+Notes In Short Web is a webapp for creating summary and notes, sharing it with friends and family. Built using firebase platform. s
 
-Notes In Short is a place where you can share photos, follow friends, comment on photos...
+
 
 
 ## Initial setup, build tools and dependencies
@@ -14,43 +14,6 @@ Install all Build/Deploy tools dependencies by running:
 ```bash
 $> npm install
 ```
-
-
-## Create Firebase Project
-1. Create a Firebase/Google project using the [Firebase Console](https://firebase.google.com/console).
-2. Enable **Google** as a Sign in provider in **Firebase Console > Auth > Sign in Method** tab.
-3. Now click the **WEB SETUP** button in the top right corner to copy the initialization snippet it will look like this:
-
-  ```html
-  <script src="https://www.gstatic.com/firebasejs/live/<VERSION>/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "<YOUR_API_KEY>",
-      authDomain: "<YOUR_PROJECT_ID>.firebaseapp.com",
-      databaseURL: "https://<YOUR_PROJECT_ID>.firebaseapp.com",
-      storageBucket: "<YOUR_PROJECT_ID>.firebaseapp.com",
-    };
-    firebase.initializeApp(config);
-  </script>
-  ```
-
-> If the `storageBucket` value is empty you've hit a bug. Just close the window and click the  **WEB SETUP** button again and you should get it.
-
-
-## Update the project with your firebase project
-1. In the root of the site locate the **index.html** in the root of the folder and replace the text below with the snippet you coppied above:
-
-  ```html
-  <!-- TODO(DEVELOPER): Paste the initialization snippet from: Firebase Console > Add Firebase to your web app. -->
-  ```
-
-2. In the root of the site locate the file __storage.rules__ and replace the storage bucket location with the one from firebase project:
-
-  ```javascript
-  // TODO: Change the <STORAGE_BUCKET> placeholder below
-  match /b/<STORAGE_BUCKET>/o {
-  ```
 
 ## Start a local development server
 
@@ -84,7 +47,3 @@ Then this deploys a new version of your code that will be served from `https://<
 
 We'd love that you contribute to the project. Before doing so please read our [Contributor guide](../CONTRIBUTING.md).
 
-
-## License
-
-© Google, 2011. Licensed under an [Apache-2](../LICENSE) license.
