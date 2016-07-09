@@ -18,6 +18,7 @@ import android.view.GestureDetector;
 
 import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -297,10 +298,10 @@ public class MainActivity extends AppCompatActivity {
 
         fileList = getfile(root);
         for (int i = 0; i < fileList.size(); i++) {
-            if (!fileList.get(i).isDirectory()) {
+            if (!fileList.get(i).isDirectory() && fileList.get(i).getName().endsWith(".pdf")) {
                 Log.v(TAG, fileList.get(i).getName());
             } else {
-                Log.v(TAG, fileList.get(i).getName());
+                //Log.v(TAG, fileList.get(i).getName());
             }
         }
     }
@@ -319,7 +320,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return fileList;
