@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+
+<html data-scribe-reduced-action-queue="true" lang="en">
+<head>
+<meta charset="utf-8">
+<noscript><meta content="0; URL=https://mobile.twitter.com/i/nojs_router?path=%2Fsearch&amp;src=typd&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;f=tweets" http-equiv="refresh"/></noscript>
+<script id="bouncer_terminate_iframe" nonce="mbt1/0k6uzCQzfKBh8Tl/A==">
+    if (window.top != window) {
+  window.top.postMessage({'bouncer': true, 'event': 'complete'}, '*');
+}
+  </script>
+<script id="swift_action_queue" nonce="mbt1/0k6uzCQzfKBh8Tl/A==">
+    (function(){function m(a){a||(a=window.event);if(!a)return!1;a.timestamp=(new Date).getTime();!a.target&&a.srcElement&&(a.target=a.srcElement);if(document.documentElement.getAttribute("data-scribe-reduced-action-queue")){var b=a.target;while(b&&b!=document
+.body){if(b.tagName=="A")return;b=b.parentNode}}r("all",s(a));if(!q(a)){r("direct",a);return!0}document.addEventListener||(a=s(a));a.preventDefault=a.stopPropagation=a.stopImmediatePropagation=function(){};if(i){f.push(a);r("captured",a)}else r("ignored",a
+);return!1}function n($){p();for(var a=0,b;b=f[a];a++){var d=$(b.target),e=d.closest("a")[0];if(b.type=="click"&&e){var g=$.data(e,"events"),i=g&&g.click,j=!e.hostname.match(c)||!e.href.match(/#$/);if(!i&&j){window.location=e.href;continue}}d.trigger($.event
+.fix(b))}window.swiftActionQueue.wasFlushed=!0}function o(){for(var a in j){if(a=="all")continue;var b=j[a];for(var c=0;c<b.length;c++)console.log("actionQueue",u(b[c]))}}function p(){clearTimeout(g);for(var a=0,b;b=e[a];a++)document["on"+b]=null}function q
+(a){if(!a.target)return!1;var b=a.target,e=(b.tagName||"").toLowerCase();if(a.metaKey)return!1;if(a.shiftKey&&e=="a")return!1;if(b.hostname&&!b.hostname.match(c))return!1;if(a.type.match(d)&&w(b))return!1;if(e=="label"){var f=b.getAttribute("for");if(f){var g=
+document.getElementById(f);if(g&&v(g))return!1}else for(var i=0,j;j=b.childNodes[i];i++)if(v(j))return!1}return!0}function r(a,b){b.bucket=a;j[a].push(b)}function s(a){var b={};for(var c in a)b[c]=a[c];return b}function t(a){while(a&&a!=document.body){if(a
+.tagName=="A")return a;a=a.parentNode}}function u(b){var c=[];b.bucket&&c.push("["+b.bucket+"]");c.push(b.type);var d=b.target,e=t(d),f="",g,i,j=b.timestamp&&b.timestamp-a;if(b.type==="click"&&e){g=e.className.trim().replace(/\s+/g,".");i=e.id.trim();f=/[^#]$/
+.test(e.href)?" ("+e.href+")":"";d='"'+e.innerText.replace(/\n+/g," ").trim()+'"'}else{g=d.className.trim().replace(/\s+/g,".");i=d.id.trim();d=d.tagName.toLowerCase();b.keyCode&&(d=String.fromCharCode(b.keyCode)+" : "+d)}c.push(d+f+(i&&"#"+i)+(!i&&g?"."+g
+:""));j&&c.push(j);return c.join(" ")}function v(a){var b=(a.tagName||"").toLowerCase();return b=="input"&&a.getAttribute("type")=="checkbox"}function w(a){var b=(a.tagName||"").toLowerCase();return b=="textarea"||b=="input"&&a.getAttribute("type")=="text"||
+a.getAttribute("contenteditable")=="true"}var a=(new Date).getTime(),b=1e4,c=/^([^\.]+\.)*twitter\.com$/,d=/^key/,e=["click","keydown","keypress","keyup"],f=[],g=null,i=!0,j={captured:[],ignored:[],direct:[],all:[]};for(var k=0,l;l=e[k];k++)document["on"+l
+]=m;g=setTimeout(function(){i=!1},b);window.swiftActionQueue={buckets:j,flush:n,logActions:o,wasFlushed:!1}})();
+  </script>
+<script id="composition_state" nonce="mbt1/0k6uzCQzfKBh8Tl/A==">
+    (function(){function a(a){a.target.setAttribute("data-in-composition","true")}function b(a){a.target.removeAttribute("data-in-composition")}if(document.addEventListener){document.addEventListener("compositionstart",a,!1);document.addEventListener("compositionend"
+,b,!1)}})();
+  </script>
+<script id="load_js" nonce="mbt1/0k6uzCQzfKBh8Tl/A==">
+    /*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */(function(a){var b=function(b,c){"use strict";var d=a.document.getElementsByTagName("script")[0],e=a.document.createElement
+("script");e.src=b;e.async=!0;d.parentNode.insertBefore(e,d);c&&typeof c=="function"&&(e.onload=c);return e};typeof module!="undefined"?module.exports=b:a.loadJS=b})(typeof global!="undefined"?global:this);
+  </script>
+<link href="https://abs.twimg.com/a/1467966468/css/t1/twitter_core.bundle.css" rel="stylesheet">
+<link href="https://abs.twimg.com/a/1467966468/css/t1/twitter_more_1.bundle.css" rel="stylesheet">
+<link href="https://abs.twimg.com/a/1467966468/css/t1/twitter_more_2.bundle.css" rel="stylesheet">
+<link href="https://pbs.twimg.com" rel="dns-prefetch">
+<link href="https://t.co" rel="dns-prefetch">
+<link as="script" href="https://abs.twimg.com/c/swift/en/init.314a9707f177773430c9b565030e9ea5b8638c96.js" rel="preload">
+<link as="script" href="https://abs.twimg.com/c/swift/en/bundle/timeline.20389bc2f54407a5eb508e248a2a7a64457c0609.js" rel="preload">
+<link as="script" href="https://abs.twimg.com/c/swift/en/bundle/boot.c09735539d966801edba73cbc8a86a0042072a93.js" rel="preload">
+<title>lang:en include:retweets near:"New Delhi, India" within:125mi police Obama officers said. Dallas filter:media - Twitter Search</title>
+<meta content="NOODP" name="robots">
+<meta content='The latest Tweets on lang:en include:retweets near:"New Delhi, India" within:125mi police Obama officers said. Dallas filter:media. Read what people are saying and join the conversation.' name="description">
+<meta content="//abs.twimg.com/favicons/win8-tile-144.png" name="msapplication-TileImage"/>
+<meta content="#00aced" name="msapplication-TileColor"/>
+<link color="#55acee" href="https://abs.twimg.com/a/1467966468/img/t1/favicon.svg" rel="mask-icon" sizes="any">
+<link href="//abs.twimg.com/favicons/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="/manifest.json" rel="manifest">
+<meta content="search" id="swift-page-name" name="swift-page-name">
+<link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia" rel="canonical">
+<link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets" hreflang="x-default" rel="alternate">
+<link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=fr" hreflang="fr" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=en" hreflang="en" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=ar" hreflang="ar" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=ja" hreflang="ja" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=es" hreflang="es" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=de" hreflang="de" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=it" hreflang="it" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=id" hreflang="id" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=pt" hreflang="pt" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=ko" hreflang="ko" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=tr" hreflang="tr" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=ru" hreflang="ru" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=nl" hreflang="nl" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=fil" hreflang="fil" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=ms" hreflang="ms" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=zh-tw" hreflang="zh-tw" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=zh-cn" hreflang="zh-cn" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=hi" hreflang="hi" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=no" hreflang="no" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=sv" hreflang="sv" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=fi" hreflang="fi" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=da" hreflang="da" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=pl" hreflang="pl" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=hu" hreflang="hu" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=fa" hreflang="fa" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=he" hreflang="he" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=ur" hreflang="ur" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=th" hreflang="th" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=uk" hreflang="uk" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=ca" hreflang="ca" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=ga" hreflang="ga" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=el" hreflang="el" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=eu" hreflang="eu" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=cs" hreflang="cs" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=gl" hreflang="gl" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=ro" hreflang="ro" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=hr" hreflang="hr" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=en-gb" hreflang="en-gb" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=vi" hreflang="vi" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=bn" hreflang="bn" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=bg" hreflang="bg" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=sr" hreflang="sr" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=sk" hreflang="sk" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=gu" hreflang="gu" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=mr" hreflang="mr" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=ta" hreflang="ta" rel="alternate"><link href="https://twitter.com/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd&amp;f=tweets&amp;lang=kn" hreflang="kn" rel="alternate">
+<link href="https://mobile.twitter.com/search?src=typd&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;f=tweets" media="handheld, only screen and (max-width: 640px)" rel="alternate">
+<link href="android-app://com.twitter.android/twitter/search?query=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;ref_src=twsrc%5Egoogle%7Ctwcamp%5Eandroidseo%7Ctwgr%5Esearch%7Ctwterm%5Elang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia" rel="alternate">
+<link href="/opensearch.xml" rel="search" title="Twitter" type="application/opensearchdescription+xml">
+<link id="async-css-placeholder">
+<input class="json-data" id="init-data" type="hidden" value='{"keyboardShortcuts":[{"name":"Actions","description":"Shortcuts for common actions.","shortcuts":[{"keys":["Enter"],"description":"Open Tweet details"},{"keys":["o"],"description":"Expand photo"},{"keys":["\/"],"description":"Search"}]},{"name":"Navigation","description":"Shortcuts for navigating between items in timelines.","shortcuts":[{"keys":["?"],"description":"This menu"},{"keys":["j"],"description":"Next Tweet"},{"keys":["k"],"description":"Previous Tweet"},{"keys":["Space"],"description":"Page down"},{"keys":["."],"description":"Load new Tweets"}]},{"name":"Timelines","description":"Shortcuts for navigating to different timelines or pages.","shortcuts":[{"keys":["g","u"],"description":"Go to user\u2026"}]}],"jsInitDelay":0,"hasKenburnEffectOnSingleImage":false,"composeIgnoreAttachmentText":false,"baseFoucClass":"swift-loading","bodyFoucClassNames":"swift-loading","macawSwift":true,"assetsBasePath":"https:\/\/abs.twimg.com\/a\/1467966468\/","assetVersionKey":"f28314","environment":"production","formAuthenticityToken":"60fef385fe8f254e197abc154715108323b065ad","loggedIn":false,"softUserLoggedIn":false,"screenName":null,"fullName":null,"userId":null,"guestId":"146806738214937023","allowAdsPersonalization":true,"scribeBufferSize":3,"pageName":"search","sectionName":"default_tweets","scribeParameters":{},"recaptchaApiUrl":"https:\/\/www.google.com\/recaptcha\/api\/js\/recaptcha_ajax.js","internalReferer":null,"geoEnabled":false,"typeaheadData":{"accounts":{"enabled":true,"localQueriesEnabled":false,"remoteQueriesEnabled":true,"limit":6},"trendLocations":{"enabled":true},"dmConversations":{"enabled":false},"savedSearches":{"enabled":false,"items":[]},"dmAccounts":{"enabled":false,"localQueriesEnabled":false,"remoteQueriesEnabled":false,"onlyDMable":true},"mediaTagAccounts":{"enabled":false,"localQueriesEnabled":true,"remoteQueriesEnabled":false,"onlyShowUsersWithCanMediaTag":false,"currentUserId":-1},"selectedUsers":{"enabled":false},"prefillUsers":{"enabled":false},"topics":{"enabled":true,"localQueriesEnabled":false,"remoteQueriesEnabled":true,"prefetchLimit":500,"limit":4},"concierge":{"enabled":false,"localQueriesEnabled":false,"remoteQueriesEnabled":false,"prefetchLimit":500,"limit":6},"recentSearches":{"enabled":false},"hashtags":{"enabled":false,"localQueriesEnabled":false,"remoteQueriesEnabled":true,"prefetchLimit":500},"useIndexedDB":false,"showSearchAccountSocialContext":false,"showDebugInfo":false,"useThrottle":true,"accountsOnTop":false,"remoteDebounceInterval":300,"remoteThrottleInterval":300,"tweetContextEnabled":false,"fullNameMatchingInCompose":true,"topicsWithFiltersEnabled":false},"dm":{"notifications":false,"usePushForNotifications":false,"participant_max":50,"video_gif_render":true,"video_gif_upload":true,"twitter_video_player":true,"typing_indicators_publish":false,"poll_options":{"foreground_poll_interval":3000,"burst_poll_interval":3000,"burst_poll_duration":300000,"max_poll_interval":60000}},"whitelistedVideoUser":false,"autoplayDisabled":false,"pushStatePageLimit":500000,"routes":{"profile":"\/"},"pushState":true,"viewContainer":"#page-container","dragAndDropPhotoUpload":true,"href":"\/search?q=lang%3Aen+include%3Aretweets+near%3A%22New+Delhi%2C+India%22+within%3A125mi+police+Obama+officers+said.+Dallas+filter%3Amedia&amp;src=typd&amp;f=tweets","searchPathWithQuery":"\/search?q=query&amp;src=typd","timelineCardsGallery":true,"composeAltText":false,"deciders":{"bulkUnfollowEnabled":true,"custom_timeline_curation":false,"moment_maker_enabled":false,"disable_profile_popup":false,"native_notifications":true,"dm_polling_frequency_in_seconds":3000,"enable_media_tag_prefetch":true,"foundMediaTrendingEnabled":false,"enableMacawNymizerConversionLanding":false,"hqImageUploads":false,"largeHeaderImageUpload":true,"live_pipeline_consume":false,"mqImageUploads":false,"partnerIdSyncEnabled":true,"sruMediaCategory":true,"photoSruGifLimitMb":15,"promoted_video_logging_enabled":true,"pushState":true,"scribeReducedActionQueue":true,"smartInfiniteScroll":false,"useHtml5Webcam":true,"hideLeadingMentions":false,"hideLeadingMentionsWithTooltip":true,"web_perftown_stats":true,"web_perftown_ttft":true,"web_sru_stats":false,"web_upload_direct":true,"web_upload_video":true,"web_upload_video_advanced":false,"upload_video_size":500,"defaultVideoDuration":45,"maxVideoDuration":140,"internationalShippingEnabled":true,"useV2EndpointsEnabled":true,"useVmapVariants":false,"autoplayPreviewPreroll":true,"moments_lohp_enabled":true,"momentsExperienceEnabled":false,"enableNativePush":false,"installNativePush":false,"autoSubscribeNativePush":false,"stickersInteractivity":true,"stickersInteractivityDuringLoading":true,"stickersExperience":true,"dynamic_video_ads_include_long_videos":true,"push_state_size":1000,"canBeSoftUser":false,"isInSoftExperiment":false},"experiments":{},"toasts_dm":false,"toasts_spoonbill":false,"toasts_timeline":false,"toasts_dm_poll_scale":60,"defaultNotificationIcon":"https:\/\/abs.twimg.com\/a\/1467966468\/img\/t1\/mobile\/wp7_app_icon.png","uploadDomain":"upload.twitter.com","promptbirdData":{"promptbirdEnabled":false,"immediateTriggers":["PullToRefresh","Navigate"],"format":null},"passwordResetAdvancedLoginForm":true,"skipAutoSignupDialog":false,"shouldReplaceSignupWithLogin":false,"hashflagBaseUrl":"https:\/\/abs.twimg.com\/hashflags\/","activeHashflags":{"المسافر":"AlMosafer\/travel.png","سفرة_الصيف":"AlMosafer\/travel.png","mémoirededory":"FindingDory\/FindingDory.png","whitejersey":"TDF2016\/WhiteJersey.png","bacphysique":"baccalaureat_emoji\/baccalaureat_emoji.png","togetherstronger":"EurosFootball2016\/Wales.png","ger":"EurosFootball2016\/Germany.png","meinestimme":"USElections2016\/ivoted.png","bacst2s":"baccalaureat_emoji\/baccalaureat_emoji.png","اقترعت":"USElections2016\/ivoted.png","immerwiederoesterreich":"EurosFootball2016\/Austria.png","一站到底":"JSBCI\/JSBCI_emoji.png","كل_عام_وأنتم_بخير":"EidAlFit_Emoji\/EidAlFit_Emoji.png","bacpro":"baccalaureat_emoji\/baccalaureat_emoji.png","سافر_الحين_وادفع_بعدين":"AlMosafer\/travel.png","tdf":"TDF2016\/TDF.png","bacstmg":"baccalaureat_emoji\/baccalaureat_emoji.png","maillotjaunelcl":"TDF2016\/YellowJersey.png","periscope":"Periscope\/Periscope.png","cblol":"CBLoL\/CBLoL.png","bethefastest":"EmojiVirgin\/EmojiVirgin.png","jederfuerjeden":"EurosFootball2016\/Germany.png","abfabmovie":"AbFabMovie\/AbFabMovie.png","yoenunvw":"Volkswagen\/YoEnUnVW.png","lovetwitter":"LoveTwitter\/LoveTwitter.png","ifoodnomengão":"iFoodBrazil\/flamengo.png","badisbred":"AnimalKingdom_Deliver\/BadisBred.png","arabianoud":"ArabianOud\/incense_burner.png","عطور_عربية":"ArabianOud\/incense_burner.png","admis":"baccalaureat_emoji\/baccalaureat_emoji.png","عيد":"EidAlFit_Emoji\/EidAlFit_Emoji.png","weareamerica":"AdCouncilEmoji\/AdCouncilEmoji_Original.png","cervantes400":"CervantesEmoji\/cervantes-emoji.png","maillotapoiscarrefour":"TDF2016\/PolkaDotJersey.png","hovotato":"USElections2016\/ivoted.png","eid":"EidAlFit_Emoji\/EidAlFit_Emoji.png","seleçãoeuro":"EuroNoSporTV\/EuroNoSporTV.png","япроголосовал(а)":"USElections2016\/ivoted.png","bastilleday":"BastilleDay2016\/BastilleDay.png","sienteelsabor":"CocaCola\/SienteElSabor.png","bacfrançais":"baccalaureat_emoji\/baccalaureat_emoji.png","gawa":"EurosFootball2016\/NorthernIreland.png","احساس":"ArabianOud\/incense_burner.png","teamdelta":"VoiceAU\/TeamDelta.png","hun":"EurosFootball2016\/Hungary.png","مضاوي":"ArabianOud\/incense_burner.png","bacsti2d":"baccalaureat_emoji\/baccalaureat_emoji.png","wimbledon":"Wimbledon2016\/Wimbledon.png","yellowjersey":"TDF2016\/YellowJersey.png","buscandoadory":"FindingDory\/FindingDory.png","vivelamannschaft":"Mercedes\/Mercedes.png","maillotapois":"TDF2016\/PolkaDotJersey.png","bacanglais":"baccalaureat_emoji\/baccalaureat_emoji.png","1of11million":"EurosFootball2016\/Portugal.png","jaivoté":"USElections2016\/ivoted.png","fetenationale":"BastilleDay2016\/BastilleDay.png","ঈদ":"EidAlFit_Emoji\/EidAlFit_Emoji.png","ঈদ_মোবারক":"EidAlFit_Emoji\/EidAlFit_Emoji.png","golive":"goLIVE2016\/goLIVE.png","zoella":"ZoellaEmoji\/Zoella.png","everycharactermatters":"EveryCharacterMatters\/EveryCharacterMatters.png","bachistoiregeographie":"baccalaureat_emoji\/baccalaureat_emoji.png","whosstillstanding":"JSBCI\/JSBCI_emoji.png","我已投票":"USElections2016\/ivoted.png","euro2016":"EurosFootball2016\/trophy.png","bacsvt":"baccalaureat_emoji\/baccalaureat_emoji.png","twitterstaryarasky":"TwitterstarYarasky\/TwitterstarYarasky.png","thesecretlifeofmypet":"Universal\/SecretLifeOfPets.png","momentodory":"FindingDory\/FindingDory.png","thesecretlifeofpets":"Universal\/SecretLifeOfPets.png","fazerdiferente":"TIM\/emoji_tim_final_3.png","tousenfrance":"EurosFootball2016\/Belgium.png","400cervantes":"CervantesEmoji\/cervantes-emoji.png","directpr":"BastilleDay2016\/BastilleDay.png","bacsthr":"baccalaureat_emoji\/baccalaureat_emoji.png","maillotblanc":"TDF2016\/WhiteJersey.png","jaimonbac":"baccalaureat_emoji\/baccalaureat_emoji.png","isl":"EurosFootball2016\/Iceland.png","bizbittidemedenbitmez":"EurosFootball2016\/Turkey.png","ceskarepre":"EurosFootball2016\/CzechRepublic.png","lemondededory":"FindingDory\/FindingDory.png","sui":"EurosFootball2016\/Switzerland.png","svk":"EurosFootball2016\/Slovakia.png","تطبيق_المسافر_للحجوزات":"AlMosafer\/travel.png","bactmd":"baccalaureat_emoji\/baccalaureat_emoji.png","عيد_مبارك":"EidAlFit_Emoji\/EidAlFit_Emoji.png","투표했어요":"USElections2016\/ivoted.png","euronosportv":"EuroNoSporTV\/EuroNoSporTV.png","allezlasuisse":"EurosFootball2016\/Switzerland.png","timchef":"TIMChef\/emoji_masterchef.png","rumoaorio":"100Days\/100Days.png","однакоманда":"EurosFootball2016\/Russia.png","nir":"EurosFootball2016\/NorthernIreland.png","aut":"EurosFootball2016\/Austria.png","bachistoire":"baccalaureat_emoji\/baccalaureat_emoji.png","عيد_الفطر":"EidAlFit_Emoji\/EidAlFit_Emoji.png","وودي":"ArabianOud\/incense_burner.png","csakegyutt":"EurosFootball2016\/Hungary.png","goingsolo":"ZoellaEmoji\/Zoella.png","تطبيق_المسافر":"AlMosafer\/travel.png","tdf2016":"TDF2016\/TDF.png","aidilfitri":"EidAlFit_Emoji\/EidAlFit_Emoji.png","bacphilo":"baccalaureat_emoji\/baccalaureat_emoji.png","bacphysiquechimie":"baccalaureat_emoji\/baccalaureat_emoji.png","твоязбірна":"EurosFootball2016\/Ukraine.png","eng":"EurosFootball2016\/England.png","14juillet2016":"BastilleDay2016\/BastilleDay.png","chamaolimpica":"OlympicTorch_Emoji\/OlympicTorch.png","presidentduterte":"PresidentDuterte\/PHVoteDuterte.png","ivoted":"USElections2016\/ivoted.png","teamronan":"VoiceAU\/TeamRonan.png","rus":"EurosFootball2016\/Russia.png","olympicflame":"OlympicTorch_Emoji\/OlympicTorch.png","iameuro":"UnibetAustralia\/soccer.png","ifoodnomengao":"iFoodBrazil\/flamengo.png","alb":"EurosFootball2016\/Albania.png","thequeue":"Wimbledon2016\/TheQueue.png","rou":"EurosFootball2016\/Romania.png","eidulfitr":"EidAlFit_Emoji\/EidAlFit_Emoji.png","badmoms":"Universal_BadMoms_Emoji\/BadMoms.png","findingdory":"FindingDory\/FindingDory.png","greenjersey":"TDF2016\/GreenJersey.png","صقر":"ArabianOud\/incense_burner.png","bacallemand":"baccalaureat_emoji\/baccalaureat_emoji.png","polkadotjersey":"TDF2016\/PolkaDotJersey.png","الفارس":"ArabianOud\/incense_burner.png","teamjessiej":"VoiceAU\/TeamJessieJ.png","bumotoako":"USElections2016\/ivoted.png","twittersparkle":"TwitterSparkle\/TwitterSparkle.png","justkeepswimming":"FindingDory\/FindingDory.png","maillotvertskoda":"TDF2016\/GreenJersey.png","ita":"EurosFootball2016\/Italy.png","ramazan_bayramı":"EidAlFit_Emoji\/EidAlFit_Emoji.png","idulfitri":"EidAlFit_Emoji\/EidAlFit_Emoji.png","vivoazzurro":"EurosFootball2016\/Italy.png","resultatsbac":"baccalaureat_emoji\/baccalaureat_emoji.png","bacitalien":"baccalaureat_emoji\/baccalaureat_emoji.png","لمسة":"ArabianOud\/incense_burner.png","سناب_المسافر_دايما_مسافر":"AlMosafer\/travel.png","maillotblanckrys":"TDF2016\/WhiteJersey.png","origin":"StateOfOrigin\/Origin.png","bacfrancais":"baccalaureat_emoji\/baccalaureat_emoji.png","bachotellerie":"baccalaureat_emoji\/baccalaureat_emoji.png","thehill":"Wimbledon2016\/TheHill.png","hairomania":"EurosFootball2016\/Romania.png","admise":"baccalaureat_emoji\/baccalaureat_emoji.png","yarasky":"TwitterstarYarasky\/TwitterstarYarasky.png","maillotvert":"TDF2016\/GreenJersey.png","yovote":"USElections2016\/ivoted.png","qlder":"StateOfOrigin\/QLDER.png","رسالة":"ArabianOud\/incense_burner.png","energia":"JBalvinNew\/JBalvinNew.png","انا_المسافر":"AlMosafer\/travel.png","rumboario":"100Days\/100Days.png","girlonlinegoingsolo":"ZoellaEmoji\/Zoella.png","blackhistorymonth":"BlackHistoryMonth\/BlackHistoryMonth.png","overdadeirosabor":"Hellmanns\/emoji_hellmans.png","baces":"baccalaureat_emoji\/baccalaureat_emoji.png","bacmaths":"baccalaureat_emoji\/baccalaureat_emoji.png","سافر_بالتقسيط":"AlMosafer\/travel.png","とと姉ちゃん":"NHKMorningDrama\/NHKMorningDrama.png","harirayaaidilfitri":"EidAlFit_Emoji\/EidAlFit_Emoji.png","yovoté":"USElections2016\/ivoted.png","14juillet":"BastilleDay2016\/BastilleDay.png","eidmubarak":"EidAlFit_Emoji\/EidAlFit_Emoji.png","togetherforengland":"EurosFootball2016\/England.png","secretlifeofpets":"Universal\/SecretLifeOfPets.png","łączynaspolska":"EurosFootball2016\/Poland.png","zoesugg":"ZoellaEmoji\/Zoella.png","bachôtellerie":"baccalaureat_emoji\/baccalaureat_emoji.png","bacs":"baccalaureat_emoji\/baccalaureat_emoji.png","bacstav":"baccalaureat_emoji\/baccalaureat_emoji.png","nowyoucan":"SkyNow\/SKYNowYouCan.png","trovadory":"FindingDory\/FindingDory.png","tur":"EurosFootball2016\/Turkey.png","bhm":"BlackHistoryMonth\/BlackHistoryMonth.png","roadtorio":"100Days\/100Days.png","bacses":"baccalaureat_emoji\/baccalaureat_emoji.png","bacstl":"baccalaureat_emoji\/baccalaureat_emoji.png","lebaran":"EidAlFit_Emoji\/EidAlFit_Emoji.png","wal":"EurosFootball2016\/Wales.png","bacespagnol":"baccalaureat_emoji\/baccalaureat_emoji.png","bel":"EurosFootball2016\/Belgium.png","bacstd2a":"baccalaureat_emoji\/baccalaureat_emoji.png","fiersdetrebleus":"EurosFootball2016\/France.png","cze":"EurosFootball2016\/CzechRepublic.png","blacklivesmatter":"BlackHistoryMonth\/BlackHistoryMonth.png","pol":"EurosFootball2016\/Poland.png","العربية_للعود":"ArabianOud\/incense_burner.png","résultatsbac":"baccalaureat_emoji\/baccalaureat_emoji.png","budiponosan":"EurosFootball2016\/Croatia.png","fandimespolu":"EurosFootball2016\/Slovakia.png","thisbudsforyou":"Bud_Emoji\/Bud.png","icaucused":"USElections2016\/ivoted.png","ukr":"EurosFootball2016\/Ukraine.png","esp":"EurosFootball2016\/Spain.png","makethefuture":"Shell_Emoji\/ShellLightbulb.png","cro":"EurosFootball2016\/Croatia.png","irl":"EurosFootball2016\/ROIreland.png","lovehasnolabels":"AdCouncilEmoji\/AdCouncilEmoji_Original.png","vamosespaña":"EurosFootball2016\/Spain.png","bacl":"baccalaureat_emoji\/baccalaureat_emoji.png","選挙に行こう":"JapanUpperHouseElection\/JapanUpperHouseElection.png","uptheblues":"StateOfOrigin\/UpTheBlues.png","sharkweek":"SharkWeekEmoji\/SharkWeek_Original.png","por":"EurosFootball2016\/Portugal.png","teammadden":"VoiceAU\/TeamMadden.png","swe":"EurosFootball2016\/Sweden.png","bac2016":"baccalaureat_emoji\/baccalaureat_emoji.png","maillotjaune":"TDF2016\/YellowJersey.png","fra":"EurosFootball2016\/France.png","ufc200":"UFC200\/UFC200.png","coybig":"EurosFootball2016\/ROIreland.png"},"trendsCacheKey":null,"decider_personalized_trends":false,"trendsEndpoint":"\/i\/trends","wtfOptions":{"pc":true,"connections":true,"limit":3,"display_location":"wtf-component","dismissable":true},"adaptiveSearch":true,"isUserGridTimeline":false,"isMediaGridTimeline":false,"query":"lang:en include:retweets near:\"New Delhi, India\" within:125mi police Obama officers said. Dallas filter:media","searchBoxQuery":"lang:en include:retweets near:\"New Delhi, India\" within:125mi police Obama officers said. Dallas filter:media","searchDetails":{"query":"lang:en include:retweets near:\"New Delhi, India\" within:125mi police Obama officers said. Dallas filter:media","query_source":"typd"},"scribeComponent":{"userGallery":"users_module","imageGallery":"images_module","newsGalleryLarge":"news_module_large","newsGallerySmall":"news_module_small","newsGalleryText":"news_module_text","placeYelp":"place_module_yelp","placeFoursquare":"place_module_foursquare","relatedHeadlines":"related_headlines","spellingSuggestion":"spelling_suggestion","relatedSearches":"related_searches"},"allowInfiniteScroll":true,"pollingEnabled":true,"searchEndpoint":"\/i\/search\/timeline?f=tweets&amp;vertical=default&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd","pollingOptions":{"focusedInterval":30000,"blurredInterval":300000,"backoffFactor":1,"backoffEmptyResponseLimit":2,"pauseAfterBackoff":true,"resumeItemCount":40},"initialState":{"title":"lang:en include:retweets near:\"New Delhi, India\" within:125mi police Obama officers said. Dallas filter:media - Twitter Search","section":null,"module":"app\/pages\/search\/adaptive\/default","cache_ttl":300,"body_class_names":"three-col logged-out AdaptiveSearchPage AdaptiveDefaultPage","doc_class_names":null,"route_name":"","page_container_class_names":"AppContent  wrapper-search","ttft_navigation":false}}'>
+<input class="swift-boot-module" type="hidden" value="app/pages/search/adaptive/default">
+<input id="swift-module-path" type="hidden" value="https://abs.twimg.com/c/swift/en">
+<script async="" src="https://abs.twimg.com/c/swift/en/init.314a9707f177773430c9b565030e9ea5b8638c96.js"></script>
+</input></input></input></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></meta></link></link></link></meta></meta></link></link></link></link></link></link></link></link></meta></head>
+<body class="three-col logged-out AdaptiveSearchPage AdaptiveDefaultPage" data-fouc-class-names="swift-loading" dir="ltr">
+<script id="swift_loading_indicator" nonce="mbt1/0k6uzCQzfKBh8Tl/A==">
+        document.body.className=document.body.className+" "+document.body.getAttribute("data-fouc-class-names");
+      </script>
+<div class="" data-at-shortcutkeys='{"Enter":"Open Tweet details","o":"Expand photo","/":"Search","?":"This menu","j":"Next Tweet","k":"Previous Tweet","Space":"Page down",".":"Load new Tweets","gu":"Go to user\u2026"}' id="doc">
+<div class="topbar js-topbar">
+<div class="global-nav global-nav--newLoggedOut" data-section-term="top_nav">
+<div class="global-nav-inner">
+<div class="container">
+<ul class="nav js-global-actions" id="global-actions" role="navigation">
+<li class="home" data-global-action="home" id="global-nav-home">
+<a class="js-nav js-tooltip js-dynamic-tooltip" data-component-context="home_nav" data-nav="home" data-placement="bottom" href="/">
+<span class="Icon Icon--bird Icon--large"></span>
+<span class="text">Home</span>
+</a>
+</li>
+<li class="about" data-global-action="about" id="global-nav-about">
+<a class="js-tooltip js-dynamic-tooltip" data-component-context="about_nav" data-nav="about" data-placement="bottom" href="/about" target="_blank">
+<span class="text">About</span>
+</a>
+</li>
+</ul>
+<div class="pull-right">
+<div role="search">
+<form action="/search" class="t1-form form-search js-search-form" id="global-nav-search">
+<label class="visuallyhidden" for="search-query">Search query</label>
+<input autocomplete="off" class="search-input" id="search-query" name="q" placeholder="Search Twitter" spellcheck="false" type="text">
+<span class="search-icon js-search-action">
+<button class="Icon Icon--search nav-search" type="submit">
+<span class="visuallyhidden">Search Twitter</span>
+</button>
+</span>
+<div class="dropdown-menu typeahead" role="listbox">
+<div aria-hidden="true" class="dropdown-caret">
+<div class="caret-outer"></div>
+<div class="caret-inner"></div>
+</div>
+<div class="dropdown-inner js-typeahead-results" role="presentation">
+<div class="typeahead-saved-searches" role="presentation">
+<h3 class="typeahead-category-title saved-searches-title" id="saved-searches-heading">Saved searches</h3>
+<ul class="typeahead-items saved-searches-list" role="presentation">
+<li class="typeahead-item typeahead-saved-search-item" role="presentation">
+<span aria-hidden="true" class="Icon Icon--close"><span class="visuallyhidden">Remove</span></span>
+<a aria-describedby="saved-searches-heading" class="js-nav" data-ds="saved_search" data-query-source="" data-search-query="" href="" role="option" tabindex="-1"></a>
+</li>
+</ul>
+</div>
+<ul class="typeahead-items typeahead-topics" role="presentation">
+<li class="typeahead-item typeahead-topic-item" role="presentation">
+<a class="js-nav" data-ds="topics" data-query-source="typeahead_click" data-search-query="" href="" role="option" tabindex="-1"></a>
+</li>
+</ul>
+<ul class="typeahead-items typeahead-accounts js-typeahead-accounts" role="presentation">
+<li class="typeahead-item typeahead-account-item js-selectable" data-remote="true" data-score="" data-user-id="" data-user-screenname="" role="presentation">
+<a class="js-nav" data-ds="account" data-query-source="typeahead_click" data-search-query="" role="option">
+<img alt="" class="avatar size32">
+<span class="typeahead-user-item-info">
+<span class="fullname"></span>
+<span class="js-verified hidden"><span class="Icon Icon--verified Icon--small">
+<span class="u-hiddenVisually">Verified account</span>
+</span></span>
+<span class="username"><s>@</s><b></b></span>
+</span>
+</img></a>
+</li>
+<li class="js-selectable typeahead-accounts-shortcut js-shortcut" role="presentation"><a class="js-nav" data-ds="account_search" data-query-source="typeahead_click" data-search-query="" data-shortcut="true" href="" role="option"></a></li>
+</ul>
+<ul class="typeahead-items typeahead-trend-locations-list" role="presentation">
+<li class="typeahead-item typeahead-trend-locations-item" role="presentation"><a class="js-nav" data-ds="trend_location" data-search-query="" href="" role="option" tabindex="-1"></a></li>
+</ul>
+<div class="typeahead-user-select" role="presentation">
+<div class="typeahead-empty-suggestions" role="presentation">
+    Suggested users
+  </div>
+<ul class="typeahead-items typeahead-selected js-typeahead-selected" role="presentation">
+<li class="typeahead-item typeahead-selected-item js-selectable" data-remote="true" data-score="" data-user-id="" data-user-screenname="" role="presentation">
+<a class="js-nav" data-ds="account" data-query-source="typeahead_click" data-search-query="" role="option">
+<img alt="" class="avatar size32">
+<span class="typeahead-user-item-info">
+<span class="select-status deselect-user js-deselect-user Icon Icon--check"></span>
+<span class="select-status select-disabled Icon Icon--unfollow"></span>
+<span class="fullname"></span>
+<span class="js-verified hidden"><span class="Icon Icon--verified Icon--small">
+<span class="u-hiddenVisually">Verified account</span>
+</span></span>
+<span class="username"><s>@</s><b></b></span>
+</span>
+</img></a>
+</li>
+<li class="typeahead-selected-end" role="presentation"></li>
+</ul>
+<ul class="typeahead-items typeahead-accounts js-typeahead-accounts" role="presentation">
+<li class="typeahead-item typeahead-account-item js-selectable" data-remote="true" data-score="" data-user-id="" data-user-screenname="" role="presentation">
+<a class="js-nav" data-ds="account" data-query-source="typeahead_click" data-search-query="" role="option">
+<img alt="" class="avatar size32">
+<span class="typeahead-user-item-info">
+<span class="select-status deselect-user js-deselect-user Icon Icon--check"></span>
+<span class="select-status select-disabled Icon Icon--unfollow"></span>
+<span class="fullname"></span>
+<span class="js-verified hidden"><span class="Icon Icon--verified Icon--small">
+<span class="u-hiddenVisually">Verified account</span>
+</span></span>
+<span class="username"><s>@</s><b></b></span>
+</span>
+</img></a>
+</li>
+<li class="typeahead-accounts-end" role="presentation"></li>
+</ul>
+</div>
+<div class="typeahead-dm-conversations" role="presentation">
+<ul class="typeahead-items typeahead-dm-conversation-items" role="presentation">
+<li class="typeahead-item typeahead-dm-conversation-item" role="presentation">
+<a role="option" tabindex="-1"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</input></form>
+</div>
+<ul class="nav secondary-nav language-dropdown">
+<li class="dropdown js-language-dropdown">
+<a class="dropdown-toggle js-dropdown-toggle" href="#supported_languages">
+<small>Language:</small> <span class="js-current-language">English</span> <b class="caret"></b>
+</a>
+<div class="dropdown-menu">
+<div class="dropdown-caret right">
+<span class="caret-outer"> </span>
+<span class="caret-inner"></span>
+</div>
+<ul id="supported_languages">
+<li><a class="js-language-link js-tooltip" data-lang-code="id" href="?lang=id" title="Indonesian">Bahasa Indonesia</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="msa" href="?lang=msa" title="Malay">Bahasa Melayu</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="ca" href="?lang=ca" title="Catalan">Català</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="cs" href="?lang=cs" title="Czech">Čeština</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="da" href="?lang=da" title="Danish">Dansk</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="de" href="?lang=de" title="German">Deutsch</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="en-gb" href="?lang=en-gb" title="British English">English UK</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="es" href="?lang=es" title="Spanish">Español</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="fil" href="?lang=fil" title="Filipino">Filipino</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="fr" href="?lang=fr" title="French">Français</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="hr" href="?lang=hr" title="Croatian">Hrvatski</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="it" href="?lang=it" title="Italian">Italiano</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="hu" href="?lang=hu" title="Hungarian">Magyar</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="nl" href="?lang=nl" title="Dutch">Nederlands</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="no" href="?lang=no" title="Norwegian">Norsk</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="pl" href="?lang=pl" title="Polish">Polski</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="pt" href="?lang=pt" title="Portuguese">Português</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="ro" href="?lang=ro" title="Romanian">Română</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="sk" href="?lang=sk" title="Slovak">Slovenčina</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="fi" href="?lang=fi" title="Finnish">Suomi</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="sv" href="?lang=sv" title="Swedish">Svenska</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="vi" href="?lang=vi" title="Vietnamese">Tiếng Việt</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="tr" href="?lang=tr" title="Turkish">Türkçe</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="el" href="?lang=el" title="Greek">Ελληνικά</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="bg" href="?lang=bg" title="Bulgarian">Български език</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="ru" href="?lang=ru" title="Russian">Русский</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="sr" href="?lang=sr" title="Serbian">Српски</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="uk" href="?lang=uk" title="Ukrainian">Українська мова</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="he" href="?lang=he" title="Hebrew">עִבְרִית</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="ar" href="?lang=ar" title="Arabic">العربية</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="fa" href="?lang=fa" title="Persian">فارسی</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="mr" href="?lang=mr" title="Marathi">मराठी</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="hi" href="?lang=hi" title="Hindi">हिन्दी</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="bn" href="?lang=bn" title="Bengali">বাংলা</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="gu" href="?lang=gu" title="Gujarati">ગુજરાતી</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="ta" href="?lang=ta" title="Tamil">தமிழ்</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="kn" href="?lang=kn" title="Kannada">ಕನ್ನಡ</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="th" href="?lang=th" title="Thai">ภาษาไทย</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="ko" href="?lang=ko" title="Korean">한국어</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="ja" href="?lang=ja" title="Japanese">日本語</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="zh-cn" href="?lang=zh-cn" title="Simplified Chinese">简体中文</a></li>
+<li><a class="js-language-link js-tooltip" data-lang-code="zh-tw" href="?lang=zh-tw" title="Traditional Chinese">繁體中文</a></li>
+</ul>
+</div>
+<div class="js-front-language">
+<form action="/sessions/change_locale" class="t1-form language" method="POST">
+<input name="lang" type="hidden"> <input name="redirect" type="hidden">
+<input name="authenticity_token" type="hidden" value="60fef385fe8f254e197abc154715108323b065ad">
+</input></input></input></form>
+</div>
+</li>
+</ul>
+<ul class="nav secondary-nav session-dropdown" id="session">
+<li class="dropdown js-session">
+<a class="dropdown-toggle js-dropdown-toggle dropdown-signin" data-nav="login" href="/login" id="signin-link">
+<small>Have an account?</small> <span class="emphasize"> Log in</span><span class="caret"></span>
+</a>
+<div class="dropdown-menu dropdown-form" id="signin-dropdown">
+<div class="dropdown-caret right"> <span class="caret-outer"></span> <span class="caret-inner"></span> </div>
+<div class="signin-dialog-body">
+<div>Have an account?</div>
+<form action="https://twitter.com/sessions" class="LoginForm js-front-signin" data-component="login_callout" data-element="form" method="post">
+<div class="LoginForm-input LoginForm-username">
+<input autocomplete="username" class="text-input email-input js-signin-email" name="session[username_or_email]" placeholder="Phone, email or username" type="text"/>
+</div>
+<div class="LoginForm-input LoginForm-password">
+<input autocomplete="current-password" class="text-input" name="session[password]" placeholder="Password" type="password">
+</input></div>
+<div class="LoginForm-rememberForgot">
+<label>
+<input checked="checked" name="remember_me" type="checkbox" value="1">
+<span>Remember me</span>
+</input></label>
+<span class="separator">·</span>
+<a class="forgot" href="/account/begin_password_reset">Forgot password?</a>
+</div>
+<input class="submit btn primary-btn js-submit" type="submit" value="Log in">
+<input name="return_to_ssl" type="hidden" value="true">
+<input name="scribe_log" type="hidden">
+<input name="redirect_after_login" type="hidden" value="/search?q=lang%3Aen+include%3Aretweets+near%3A%22New+Delhi%2C+India%22+within%3A125mi+police+Obama+officers+said.+Dallas+filter%3Amedia&amp;src=typd&amp;f=tweets">
+<input name="authenticity_token" type="hidden" value="60fef385fe8f254e197abc154715108323b065ad">
+</input></input></input></input></input></form>
+<hr>
+<div class="signup SignupForm">
+<div class="SignupForm-header">New to Twitter?</div>
+<a class="SignupForm-submit u-block u-textCenter js-signup btn" data-component="signup_callout" data-element="dropdown" href="https://twitter.com/signup" role="button">Sign up
+                </a>
+</div>
+</hr></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="page-outer">
+<div class="AppContent wrapper-search" id="page-container">
+<div class="AdaptiveSearchTitle u-bgUserColor">
+<h1 class="AdaptiveSearchTitle-title" dir="ltr">lang:en include:retweets near:"New Delhi, India" within:125mi police Obama officers said. Dallas filter:media</h1>
+<div class="AdaptiveSpellingSuggestion">
+      Including results for <a class="AdaptiveSpellingSuggestion-query AdaptiveSpellingSuggestion-correctedQuery js-nav" data-query="police Obama officers said Dallas" href="/search?q=police%20Obama%20officers%20said%20Dallas&amp;src=spxc" rel="nofollow">police Obama officers said Dallas</a>. Search only for <a class="AdaptiveSpellingSuggestion-query AdaptiveSpellingSuggestion-originalQuery js-nav" data-query='lang:en include:retweets near:"New Delhi, India" within:125mi police Obama officers said. Dallas filter:media' href="/search?q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=spxr" rel="nofollow">lang:en include:retweets near:"New Delhi, India" within:125mi police Obama officers said. Dallas filter:media</a> instead.
+  </div>
+</div>
+<div class="AppContainer">
+<div class="AdaptiveFiltersBar">
+<ul class="AdaptiveFiltersBar-nav">
+<li class="AdaptiveFiltersBar-item u-borderUserColor ">
+<a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link u-textUserColor js-nav" data-nav="search_filter_top" href="/search?vertical=default&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd" title="Top">
+<span class="AdaptiveFiltersBar-label">Top</span>
+</a>
+</li><li class="AdaptiveFiltersBar-item u-borderUserColor is-selected">
+<a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link u-textUserColor js-nav" data-nav="search_filter_tweets" href="/search?f=tweets&amp;vertical=default&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd" title="Live">
+<span class="AdaptiveFiltersBar-label">Live</span>
+</a>
+</li><li class="AdaptiveFiltersBar-item u-borderUserColor ">
+<a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link u-textUserColor js-nav" data-nav="search_filter_users" href="/search?f=users&amp;vertical=default&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd" title="Accounts">
+<span class="AdaptiveFiltersBar-label">Accounts</span>
+</a>
+</li><li class="AdaptiveFiltersBar-item u-borderUserColor ">
+<a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link u-textUserColor js-nav" data-nav="search_filter_images" href="/search?f=images&amp;vertical=default&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd" title="Photos">
+<span class="AdaptiveFiltersBar-label">Photos</span>
+</a>
+</li><li class="AdaptiveFiltersBar-item u-borderUserColor ">
+<a class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--link u-textUserColor js-nav" data-nav="search_filter_videos" href="/search?f=videos&amp;vertical=default&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd" title="Videos">
+<span class="AdaptiveFiltersBar-label">Videos</span>
+</a>
+</li><li class="AdaptiveFiltersBar-item AdaptiveFiltersBar-item--more u-borderUserColor ">
+<div class="dropdown">
+<button class="AdaptiveFiltersBar-target AdaptiveFiltersBar-target--more u-textUserColor js-dropdown-toggle" type="button">
+          More options
+          <span class="AdaptiveFiltersBar-moreCaretIcon Icon Icon--caretDown"></span>
+</button>
+<div class="AdaptiveFiltersDropdown dropdown-menu">
+<ul>
+<li>
+<a class="AdaptiveFiltersDropdown-target js-nav" data-nav="reset_result" href="/search?vertical=default&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd" title="All">
+<span class="AdaptiveFiltersDropdown-label ">All</span>
+</a>
+</li>
+<li>
+<a class="AdaptiveFiltersDropdown-target js-nav" data-nav="search_filter_tweets" href="/search?f=tweets&amp;vertical=default&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd" title="Tweets">
+<span class="AdaptiveFiltersDropdown-checkIcon Icon Icon--check Icon--smallest"></span><span class="AdaptiveFiltersDropdown-label is-selected">Tweets</span>
+</a>
+</li>
+<li>
+<a class="AdaptiveFiltersDropdown-target js-nav" data-nav="search_filter_users" href="/search?f=users&amp;vertical=default&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd" title="Accounts">
+<span class="AdaptiveFiltersDropdown-label ">Accounts</span>
+</a>
+</li>
+<li>
+<a class="AdaptiveFiltersDropdown-target js-nav" data-nav="search_filter_images" href="/search?f=images&amp;vertical=default&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd" title="Photos">
+<span class="AdaptiveFiltersDropdown-label ">Photos</span>
+</a>
+</li>
+<li>
+<a class="AdaptiveFiltersDropdown-target js-nav" data-nav="search_filter_videos" href="/search?f=videos&amp;vertical=default&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd" title="Videos">
+<span class="AdaptiveFiltersDropdown-label ">Videos</span>
+</a>
+</li>
+<li>
+<a class="AdaptiveFiltersDropdown-target js-nav" data-nav="search_filter_news" href="/search?f=news&amp;vertical=default&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd" title="News">
+<span class="AdaptiveFiltersDropdown-label ">News</span>
+</a>
+</li>
+<li class="dropdown-divider"></li>
+<li>
+<a class="AdaptiveFiltersDropdown-target js-nav" data-nav="reset_social" href="/search?f=tweets&amp;vertical=default&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd" title="From everyone">
+<span class="AdaptiveFiltersDropdown-checkIcon Icon Icon--check Icon--smallest"></span><span class="AdaptiveFiltersDropdown-label is-selected">From everyone</span>
+</a>
+</li>
+<li>
+<a class="AdaptiveFiltersDropdown-target js-nav" data-nav="search_filter_follows" href="/search?s=follows&amp;f=tweets&amp;vertical=default&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd" title="From people you follow">
+<span class="AdaptiveFiltersDropdown-label ">From people you follow</span>
+</a>
+</li>
+<li class="dropdown-divider"></li>
+<li>
+<a class="AdaptiveFiltersDropdown-target js-nav" data-nav="reset_location" href="/search?f=tweets&amp;vertical=default&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;src=typd" title="From everywhere">
+<span class="AdaptiveFiltersDropdown-checkIcon Icon Icon--check Icon--smallest"></span><span class="AdaptiveFiltersDropdown-label is-selected">From everywhere</span>
+</a>
+</li>
+<li>
+<a class="AdaptiveFiltersDropdown-target js-nav" data-nav="search_filter_near_me" href="/search?f=tweets&amp;vertical=default&amp;q=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia&amp;near=me&amp;src=typd" title="Near you">
+<span class="AdaptiveFiltersDropdown-label ">Near you</span>
+</a>
+</li>
+<li class="dropdown-divider"></li>
+<li>
+<a class="AdaptiveFiltersDropdown-target AdaptiveFiltersDropdown-target--embed js-nav" data-nav="embedded_search" href="/settings/widgets/new/search?query=lang%3Aen%20include%3Aretweets%20near%3A%22New%20Delhi%2C%20India%22%20within%3A125mi%20police%20Obama%20officers%20said.%20Dallas%20filter%3Amedia">
+<span class="AdaptiveFiltersDropdown-label">Embed this search</span>
+</a>
+</li>
+<li class="dropdown-divider"></li>
+<li>
+<a class="AdaptiveFiltersDropdown-target AdaptiveFiltersDropdown-target--advanced js-nav" data-nav="advanced_search" href="/search-advanced">
+<span class="AdaptiveFiltersDropdown-label">Advanced search</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="AppContent-main u-cf">
+<div class="Grid Grid--withGutter">
+<!-- Column 1 -->
+<div class="Grid-cell u-size1of3 u-lg-size1of4">
+<div class="SidebarCommonModules">
+<div class="SignupCallOut js-signup-call-out SignupCallOut--fastSignup">
+<div class="SignupCallOut-header">
+<h3 class="SignupCallOut-title u-textBreak">
+        
+  New to Twitter?
+
+    </h3>
+</div>
+<div class="SignupCallOut-subheader">
+      Sign up now to get your own personalized timeline!
+    </div>
+<div class="signup SignupForm ">
+<a class="SignupForm-submit u-block u-textCenter js-signup btn primary-btn" data-component="signup_callout" data-element="form" href="https://twitter.com/signup" role="button">Sign up</a>
+</div>
+</div>
+<div class="Trends module trends hidden Trends--blankBackground">
+<div class="trends-inner">
+<div class="flex-module trends-container ">
+<div class="flex-module-header">
+<h3><span class="trend-location js-trend-location">false</span></h3>
+</div>
+<div class="flex-module-inner">
+<ul class="trend-items js-trends">
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="Footer module roaming-module Footer--slim Footer--blankBackground">
+<div class="flex-module">
+<div class="flex-module-inner js-items-container">
+<ul class="u-cf">
+<li class="Footer-item Footer-copyright copyright">© 2016 Twitter</li>
+<li class="Footer-item"><a class="Footer-link" href="/about">About</a></li>
+<li class="Footer-item"><a class="Footer-link" href="//support.twitter.com">Help</a></li>
+<li class="Footer-item"><a class="Footer-link" href="/tos">Terms</a></li>
+<li class="Footer-item"><a class="Footer-link" href="/privacy">Privacy</a></li>
+<li class="Footer-item"><a class="Footer-link" href="//support.twitter.com/articles/20170514">Cookies</a></li>
+<li class="Footer-item"><a class="Footer-link" href="//support.twitter.com/articles/20170451">Ads info</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 1 -->
+<!-- Column 2, 3, 4 -->
+<div class="Grid-cell u-size2of3 u-lg-size3of4">
+<div class="Grid Grid--withGutter">
+<div class="Grid-cell u-size2of2 u-lg-size2of3">
+<div aria-labelledby="content-main-heading" class="content-main AdaptiveSearchTimeline" id="timeline" role="main">
+<span class="visuallyhidden" id="content-main-heading">Search results</span>
+<div class="stream-container " data-max-position="TWEET--" data-min-position="TWEET--">
+<div class="stream-item js-new-items-bar-container">
+</div>
+<div class="stream">
+<ol class="stream-items js-navigable-stream" id="stream-items-id">
+</ol>
+<div class="stream-footer ">
+<div class="timeline-end ">
+<div class="stream-end">
+<div class="stream-end-inner">
+<span class="Icon Icon--large Icon--logo"></span>
+<p class="empty-text">
+        
+
+          No results.
+    </p>
+<p><button class="btn-link back-to-top hidden" type="button">Back to top ↑</button></p>
+</div>
+</div>
+<div class="stream-loading">
+<div class="stream-end-inner">
+<span class="spinner" title="Loading..."></span>
+</div>
+</div>
+</div>
+</div>
+<div class="stream-fail-container">
+<div class="js-stream-whale-end stream-whale-end stream-placeholder centered-placeholder">
+<div class="stream-end-inner">
+<h2 class="title">Loading seems to be taking a while.</h2>
+<p>
+      Twitter may be over capacity or experiencing a momentary hiccup. <a class="try-again-after-whale" href="#" role="button">Try again</a> or visit <a href="http://status.twitter.com" target="_blank">Twitter Status</a> for more information.
+    </p>
+</div>
+</div>
+</div>
+<ol class="hidden-replies-container"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 2, 3, 4 -->
+</div>
+</div>
+</div>
+<div class="trends-dialog modal-container" id="trends_dialog">
+<div class="close-modal-background-target"></div>
+<div class="modal draggable">
+<div class="modal-content">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--medium">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title">
+            
+            Choose a trend location
+          </h3>
+</div>
+<div class="modal-body">
+<div class="trends-dialog-error">
+<p></p>
+</div>
+<div class="trends-wrapper" id="trends_dialog_content">
+<div class="loading">
+<span class="spinner-bigger"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="alert-messages hidden" id="message-drawer">
+<div class="message ">
+<div class="message-inside">
+<span class="message-text"></span>
+<a class="Icon Icon--close Icon--medium dismiss" href="#" role="button">
+<span class="visuallyhidden">Dismiss</span>
+</a>
+</div>
+</div>
+</div>
+<div class="gallery-overlay"></div>
+<div class="Gallery">
+<div class="Gallery-closeTarget"></div>
+<div class="Gallery-content">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--large">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="Gallery-media"></div>
+<div class="GalleryNav GalleryNav--prev">
+<span class="GalleryNav-handle GalleryNav-handle--prev">
+<span class="Icon Icon--caretLeft Icon--large">
+<span class="u-hiddenVisually">
+            Previous
+          </span>
+</span>
+</span>
+</div>
+<div class="GalleryNav GalleryNav--next">
+<span class="GalleryNav-handle GalleryNav-handle--next">
+<span class="Icon Icon--caretRight Icon--large">
+<span class="u-hiddenVisually">
+            Next
+          </span>
+</span>
+</span>
+</div>
+<div class="GalleryTweet"></div>
+</div>
+</div>
+<div class="modal-overlay"></div>
+<div id="profile-hover-container"></div>
+<div class="modal-container" id="goto-user-dialog">
+<div class="modal modal-small draggable">
+<div class="modal-content">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--medium">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title">Go to a person's profile</h3>
+</div>
+<div class="modal-body">
+<div class="modal-inner">
+<form class="t1-form goto-user-form">
+<input aria-label="User" class="input-block username-input" placeholder="Start typing a name to jump to a profile" type="text">
+<div class="dropdown-menu typeahead" role="listbox">
+<div aria-hidden="true" class="dropdown-caret">
+<div class="caret-outer"></div>
+<div class="caret-inner"></div>
+</div>
+<div class="dropdown-inner js-typeahead-results" role="presentation">
+<div class="typeahead-saved-searches" role="presentation">
+<h3 class="typeahead-category-title saved-searches-title" id="saved-searches-heading">Saved searches</h3>
+<ul class="typeahead-items saved-searches-list" role="presentation">
+<li class="typeahead-item typeahead-saved-search-item" role="presentation">
+<span aria-hidden="true" class="Icon Icon--close"><span class="visuallyhidden">Remove</span></span>
+<a aria-describedby="saved-searches-heading" class="js-nav" data-ds="saved_search" data-query-source="" data-search-query="" href="" role="option" tabindex="-1"></a>
+</li>
+</ul>
+</div>
+<ul class="typeahead-items typeahead-topics" role="presentation">
+<li class="typeahead-item typeahead-topic-item" role="presentation">
+<a class="js-nav" data-ds="topics" data-query-source="typeahead_click" data-search-query="" href="" role="option" tabindex="-1"></a>
+</li>
+</ul>
+<ul class="typeahead-items typeahead-accounts js-typeahead-accounts" role="presentation">
+<li class="typeahead-item typeahead-account-item js-selectable" data-remote="true" data-score="" data-user-id="" data-user-screenname="" role="presentation">
+<a class="js-nav" data-ds="account" data-query-source="typeahead_click" data-search-query="" role="option">
+<img alt="" class="avatar size32">
+<span class="typeahead-user-item-info">
+<span class="fullname"></span>
+<span class="js-verified hidden"><span class="Icon Icon--verified Icon--small">
+<span class="u-hiddenVisually">Verified account</span>
+</span></span>
+<span class="username"><s>@</s><b></b></span>
+</span>
+</img></a>
+</li>
+<li class="js-selectable typeahead-accounts-shortcut js-shortcut" role="presentation"><a class="js-nav" data-ds="account_search" data-query-source="typeahead_click" data-search-query="" data-shortcut="true" href="" role="option"></a></li>
+</ul>
+<ul class="typeahead-items typeahead-trend-locations-list" role="presentation">
+<li class="typeahead-item typeahead-trend-locations-item" role="presentation"><a class="js-nav" data-ds="trend_location" data-search-query="" href="" role="option" tabindex="-1"></a></li>
+</ul>
+<div class="typeahead-user-select" role="presentation">
+<div class="typeahead-empty-suggestions" role="presentation">
+    Suggested users
+  </div>
+<ul class="typeahead-items typeahead-selected js-typeahead-selected" role="presentation">
+<li class="typeahead-item typeahead-selected-item js-selectable" data-remote="true" data-score="" data-user-id="" data-user-screenname="" role="presentation">
+<a class="js-nav" data-ds="account" data-query-source="typeahead_click" data-search-query="" role="option">
+<img alt="" class="avatar size32">
+<span class="typeahead-user-item-info">
+<span class="select-status deselect-user js-deselect-user Icon Icon--check"></span>
+<span class="select-status select-disabled Icon Icon--unfollow"></span>
+<span class="fullname"></span>
+<span class="js-verified hidden"><span class="Icon Icon--verified Icon--small">
+<span class="u-hiddenVisually">Verified account</span>
+</span></span>
+<span class="username"><s>@</s><b></b></span>
+</span>
+</img></a>
+</li>
+<li class="typeahead-selected-end" role="presentation"></li>
+</ul>
+<ul class="typeahead-items typeahead-accounts js-typeahead-accounts" role="presentation">
+<li class="typeahead-item typeahead-account-item js-selectable" data-remote="true" data-score="" data-user-id="" data-user-screenname="" role="presentation">
+<a class="js-nav" data-ds="account" data-query-source="typeahead_click" data-search-query="" role="option">
+<img alt="" class="avatar size32">
+<span class="typeahead-user-item-info">
+<span class="select-status deselect-user js-deselect-user Icon Icon--check"></span>
+<span class="select-status select-disabled Icon Icon--unfollow"></span>
+<span class="fullname"></span>
+<span class="js-verified hidden"><span class="Icon Icon--verified Icon--small">
+<span class="u-hiddenVisually">Verified account</span>
+</span></span>
+<span class="username"><s>@</s><b></b></span>
+</span>
+</img></a>
+</li>
+<li class="typeahead-accounts-end" role="presentation"></li>
+</ul>
+</div>
+<div class="typeahead-dm-conversations" role="presentation">
+<ul class="typeahead-items typeahead-dm-conversation-items" role="presentation">
+<li class="typeahead-item typeahead-dm-conversation-item" role="presentation">
+<a role="option" tabindex="-1"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</input></form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="RetweetDialog modal-container" id="retweet-tweet-dialog">
+<div class="close-modal-background-target"></div>
+<div class="RetweetDialog-modal modal draggable">
+<div class="modal-content">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--medium">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title">Retweet this to your followers?</h3>
+</div>
+<form class="t1-form tweet-form condensed RetweetDialog-tweetForm isWithoutComment" data-condensed-text="Add a comment...">
+<div class="RetweetDialog-commentBox">
+<span class="visuallyhidden" id="-label">Optional comment for Retweet</span>
+<div class="tweet-content">
+<div class="RichEditor">
+<div class="RichEditor-mozillaCursorWorkaround"> </div>
+<div class="RichEditor-scrollContainer">
+<div aria-labelledby="-label" aria-multiline="true" class="tweet-box rich-editor" contenteditable="true" id="" role="textbox" spellcheck="true"></div>
+<div aria-hidden="true" class="RichEditor-pictographs"></div>
+</div>
+<div class="RichEditor-mozillaCursorWorkaround"> </div>
+</div>
+</div>
+<div class="dropdown-menu typeahead" role="listbox">
+<div aria-hidden="true" class="dropdown-caret">
+<div class="caret-outer"></div>
+<div class="caret-inner"></div>
+</div>
+<div class="dropdown-inner js-typeahead-results" role="presentation">
+<div class="typeahead-saved-searches" role="presentation">
+<h3 class="typeahead-category-title saved-searches-title" id="saved-searches-heading">Saved searches</h3>
+<ul class="typeahead-items saved-searches-list" role="presentation">
+<li class="typeahead-item typeahead-saved-search-item" role="presentation">
+<span aria-hidden="true" class="Icon Icon--close"><span class="visuallyhidden">Remove</span></span>
+<a aria-describedby="saved-searches-heading" class="js-nav" data-ds="saved_search" data-query-source="" data-search-query="" href="" role="option" tabindex="-1"></a>
+</li>
+</ul>
+</div>
+<ul class="typeahead-items typeahead-topics" role="presentation">
+<li class="typeahead-item typeahead-topic-item" role="presentation">
+<a class="js-nav" data-ds="topics" data-query-source="typeahead_click" data-search-query="" href="" role="option" tabindex="-1"></a>
+</li>
+</ul>
+<ul class="typeahead-items typeahead-accounts js-typeahead-accounts" role="presentation">
+<li class="typeahead-item typeahead-account-item js-selectable" data-remote="true" data-score="" data-user-id="" data-user-screenname="" role="presentation">
+<a class="js-nav" data-ds="account" data-query-source="typeahead_click" data-search-query="" role="option">
+<img alt="" class="avatar size32">
+<span class="typeahead-user-item-info">
+<span class="fullname"></span>
+<span class="js-verified hidden"><span class="Icon Icon--verified Icon--small">
+<span class="u-hiddenVisually">Verified account</span>
+</span></span>
+<span class="username"><s>@</s><b></b></span>
+</span>
+</img></a>
+</li>
+<li class="js-selectable typeahead-accounts-shortcut js-shortcut" role="presentation"><a class="js-nav" data-ds="account_search" data-query-source="typeahead_click" data-search-query="" data-shortcut="true" href="" role="option"></a></li>
+</ul>
+<ul class="typeahead-items typeahead-trend-locations-list" role="presentation">
+<li class="typeahead-item typeahead-trend-locations-item" role="presentation"><a class="js-nav" data-ds="trend_location" data-search-query="" href="" role="option" tabindex="-1"></a></li>
+</ul>
+<div class="typeahead-user-select" role="presentation">
+<div class="typeahead-empty-suggestions" role="presentation">
+    Suggested users
+  </div>
+<ul class="typeahead-items typeahead-selected js-typeahead-selected" role="presentation">
+<li class="typeahead-item typeahead-selected-item js-selectable" data-remote="true" data-score="" data-user-id="" data-user-screenname="" role="presentation">
+<a class="js-nav" data-ds="account" data-query-source="typeahead_click" data-search-query="" role="option">
+<img alt="" class="avatar size32">
+<span class="typeahead-user-item-info">
+<span class="select-status deselect-user js-deselect-user Icon Icon--check"></span>
+<span class="select-status select-disabled Icon Icon--unfollow"></span>
+<span class="fullname"></span>
+<span class="js-verified hidden"><span class="Icon Icon--verified Icon--small">
+<span class="u-hiddenVisually">Verified account</span>
+</span></span>
+<span class="username"><s>@</s><b></b></span>
+</span>
+</img></a>
+</li>
+<li class="typeahead-selected-end" role="presentation"></li>
+</ul>
+<ul class="typeahead-items typeahead-accounts js-typeahead-accounts" role="presentation">
+<li class="typeahead-item typeahead-account-item js-selectable" data-remote="true" data-score="" data-user-id="" data-user-screenname="" role="presentation">
+<a class="js-nav" data-ds="account" data-query-source="typeahead_click" data-search-query="" role="option">
+<img alt="" class="avatar size32">
+<span class="typeahead-user-item-info">
+<span class="select-status deselect-user js-deselect-user Icon Icon--check"></span>
+<span class="select-status select-disabled Icon Icon--unfollow"></span>
+<span class="fullname"></span>
+<span class="js-verified hidden"><span class="Icon Icon--verified Icon--small">
+<span class="u-hiddenVisually">Verified account</span>
+</span></span>
+<span class="username"><s>@</s><b></b></span>
+</span>
+</img></a>
+</li>
+<li class="typeahead-accounts-end" role="presentation"></li>
+</ul>
+</div>
+<div class="typeahead-dm-conversations" role="presentation">
+<ul class="typeahead-items typeahead-dm-conversation-items" role="presentation">
+<li class="typeahead-item typeahead-dm-conversation-item" role="presentation">
+<a role="option" tabindex="-1"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="RetweetDialog-footer u-cf">
+<div class="tweet-loading">
+<div class="spinner-bigger"></div>
+</div>
+<div class="RetweetDialog-tweet modal-body modal-tweet tweet"></div>
+<div class="tweet-button">
+<span class="spinner"></span>
+<span class="RetweetDialog-counter tweet-counter">140</span>
+<button class="btn primary-btn retweet-action" type="button">
+<span class="RetweetDialog-retweetActionLabel">
+<span class="Icon Icon--retweet"></span>
+                Retweet
+              </span>
+<span class="RetweetDialog-tweetActionLabel">
+<span class="Icon Icon--tweet"></span>
+                Tweet
+              </span>
+</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="modal-container" id="delete-tweet-dialog">
+<div class="close-modal-background-target"></div>
+<div class="modal draggable">
+<div class="modal-content">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--medium">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title">Are you sure you want to delete this Tweet?</h3>
+</div>
+<div class="tweet-loading">
+<div class="spinner-bigger"></div>
+</div>
+<div class="modal-body modal-tweet"></div>
+<div class="modal-footer">
+<button class="btn cancel-action js-close">Cancel</button>
+<button class="btn primary-btn delete-action">Delete</button>
+</div>
+</div>
+</div>
+</div>
+<div class="QuickPromoteDialog modal-container" id="quick-promote-dialog">
+<div class="close-modal-background-target"></div>
+<div class="modal draggable">
+<div class="modal-content">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--large">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title">Promote this Tweet</h3>
+</div>
+<div class="modal-body">
+<div class="quick-promote-view-container">
+<div class="media">
+<iframe class="quick-promote-iframe js-initial-focus" frameborder="0" scrolling="no" src="">
+</iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-container" id="block-user-dialog">
+<div class="close-modal-background-target"></div>
+<div class="modal draggable">
+<div class="modal-content">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--medium">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title">Block</h3>
+</div>
+<div class="tweet-loading">
+<div class="spinner-bigger"></div>
+</div>
+<div class="modal-body modal-tweet"></div>
+<div class="modal-footer">
+<button class="btn cancel-action js-close">Cancel</button>
+<button class="btn primary-btn block-action">Block</button>
+</div>
+</div>
+</div>
+</div>
+<div id="geo-disabled-dropdown">
+<div tabindex="-1">
+<div class="dropdown-caret">
+<span class="caret-outer"></span>
+<span class="caret-inner"></span>
+</div>
+<ul>
+<li class="geo-not-enabled-yet">
+<h2>Add a location to your Tweets</h2>
+<p>
+        When you tweet with a location, Twitter stores that location. 
+        You can switch location on/off before each Tweet and always have the option to delete your location history.
+        <a href="http://support.twitter.com/forums/26810/entries/78525" target="_blank">Learn more</a>
+</p>
+<div>
+<button class="geo-turn-on btn primary-btn" type="button">Turn location on</button>
+<button class="geo-not-now btn-link" type="button">Not now</button>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div id="geo-enabled-dropdown">
+<div tabindex="-1">
+<div class="dropdown-caret">
+<span class="caret-outer"></span>
+<span class="caret-inner"></span>
+</div>
+<div>
+<div class="geo-query-location">
+<input autocomplete="off" class="GeoSearch-queryInput" placeholder="Search for a neighborhood or city" type="text">
+<span class="Icon Icon--search"></span>
+</input></div>
+<div class="geo-dropdown-status"></div>
+<ul class="GeoSearch-dropdownMenu"></ul>
+</div>
+</div>
+</div>
+<div class="modal-container ProfilePopupContainer--bellbird" id="profile_popup">
+<div class="close-modal-background-target"></div>
+<div class="modal modal-small draggable">
+<div class="modal-content clearfix">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--medium">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title">Profile summary</h3>
+</div>
+<div class="modal-body profile-modal">
+</div>
+<div class="loading">
+<span class="spinner-bigger"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-container" id="list-membership-dialog">
+<div class="close-modal-background-target"></div>
+<div class="modal modal-small draggable">
+<div class="modal-content">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--medium">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title">Your lists</h3>
+</div>
+<div class="modal-body">
+<div class="list-membership-content"></div>
+<span class="spinner lists-spinner" title="Loading…"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-container" id="list-operations-dialog">
+<div class="close-modal-background-target"></div>
+<div class="modal modal-medium draggable">
+<div class="modal-content">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--medium">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title">Create a new list</h3>
+</div>
+<div class="modal-body">
+<div class="list-editor">
+<div class="field">
+<label class="t1-label" for="list-name">List name</label>
+<input class="text" id="list-name" name="name" type="text" value=""/>
+</div>
+<hr/>
+<div class="field">
+<label class="t1-label" for="list-description">Description</label>
+<textarea id="list-description" name="description"></textarea>
+<span class="help-text">Under 100 characters, optional</span>
+</div>
+<hr/>
+<fieldset class="field">
+<legend class="t1-legend">Privacy</legend>
+<div class="options">
+<label class="t1-label" for="list-public-radio">
+<input checked="checked" class="radio" id="list-public-radio" name="mode" type="radio" value="public"/>
+<b>Public</b> · Anyone can follow this list
+      </label>
+<label class="t1-label" for="list-private-radio">
+<input class="radio" id="list-private-radio" name="mode" type="radio" value="private"/>
+<b>Private</b> · Only you can access this list
+      </label>
+</div>
+</fieldset>
+<hr/>
+<div class="list-editor-save">
+<button class="btn btn-primary update-list-button" data-list-id="" type="button">Save list</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-container" id="activity-popup-dialog">
+<div class="close-modal-background-target"></div>
+<div class="modal draggable">
+<div class="modal-content clearfix">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--medium">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title"></h3>
+</div>
+<div class="modal-body">
+<div class="reply-users-header">
+  Your reply includes the people in this conversation up to this point. <a href="https://support.twitter.com/articles/14023">Learn more</a>
+</div>
+<div class="tweet-loading">
+<div class="spinner-bigger"></div>
+</div>
+<div class="activity-tweet modal-tweet clearfix"></div>
+<div class="loading">
+<span class="spinner-bigger"></span>
+</div>
+<div class="activity-content clearfix"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-container" id="copy-link-to-tweet-dialog">
+<div class="close-modal-background-target"></div>
+<div class="modal modal-medium draggable">
+<div class="modal-content">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--medium">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title">Copy link to Tweet</h3>
+</div>
+<div class="modal-body">
+<div class="copy-link-to-tweet-container">
+<label class="t1-label">
+<p class="copy-link-to-tweet-instructions">The URL of this tweet is below. Copy it to easily share with friends.</p>
+<textarea class="link-to-tweet-destination js-initial-focus u-dir" dir="ltr" readonly=""></textarea>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-container" id="embed-tweet-dialog">
+<div class="close-modal-background-target"></div>
+<div class="modal modal-medium draggable">
+<div class="modal-content">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--medium">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title embed-tweet-title">Embed this Tweet</h3>
+<h3 class="modal-title embed-video-title">Embed this Video</h3>
+</div>
+<div class="modal-body">
+<div class="embed-code-container">
+<p class="embed-tweet-instructions">Add this Tweet to your website by copying the code below. <a href="//dev.twitter.com/docs/embedded-tweets">Learn more</a></p>
+<p class="embed-video-instructions">Add this video to your website by copying the code below. <a href="//dev.twitter.com/docs/embedded-tweets">Learn more</a></p>
+<form class="t1-form">
+<div class="embed-destination-wrapper">
+<div class="embed-overlay embed-overlay-spinner"><div class="embed-overlay-content"></div></div>
+<div class="embed-overlay embed-overlay-error">
+<p class="embed-overlay-content">Hmm, there was a problem reaching the server. <button class="btn-link retry-embed" type="button">Try again?</button></p>
+</div>
+<textarea class="embed-destination js-initial-focus"></textarea>
+<div class="embed-options">
+<div class="embed-include-parent-tweet">
+<label class="t1-label" for="include-parent-tweet">
+<input checked="" class="include-parent-tweet" id="include-parent-tweet" type="checkbox">
+            Include parent Tweet
+          </input></label>
+</div>
+<div class="embed-include-card">
+<label class="t1-label" for="include-card">
+<input checked="" class="include-card" id="include-card" type="checkbox">
+            Include media
+          </input></label>
+</div>
+</div>
+</div>
+</form>
+<div class="embed-preview">
+<h3>Preview</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="LoginDialog modal-container u-textCenter" id="login-dialog">
+<div class="close-modal-background-target"></div>
+<div class="modal modal-large draggable">
+<div class="LoginDialog-content modal-content">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--medium">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title">Log in to Twitter</h3>
+</div>
+<div class="LoginDialog-body modal-body">
+<div class="LoginDialog-bird">
+<span class="Icon Icon--bird Icon--large"></span>
+</div>
+<div class="LoginDialog-form">
+<form action="https://twitter.com/sessions" class="LoginForm js-front-signin" data-component="dialog" data-element="login" method="post">
+<div class="LoginForm-input LoginForm-username">
+<input autocomplete="username" class="text-input email-input js-signin-email" name="session[username_or_email]" placeholder="Phone, email or username" type="text"/>
+</div>
+<div class="LoginForm-input LoginForm-password">
+<input autocomplete="current-password" class="text-input" name="session[password]" placeholder="Password" type="password">
+</input></div>
+<div class="LoginForm-rememberForgot">
+<label>
+<input checked="checked" name="remember_me" type="checkbox" value="1">
+<span>Remember me</span>
+</input></label>
+<span class="separator">·</span>
+<a class="forgot" href="/account/begin_password_reset">Forgot password?</a>
+</div>
+<input class="submit btn primary-btn js-submit" type="submit" value="Log in">
+<input name="return_to_ssl" type="hidden" value="true">
+<input name="scribe_log" type="hidden">
+<input name="redirect_after_login" type="hidden" value="/search?q=lang%3Aen+include%3Aretweets+near%3A%22New+Delhi%2C+India%22+within%3A125mi+police+Obama+officers+said.+Dallas+filter%3Amedia&amp;src=typd&amp;f=tweets">
+<input name="authenticity_token" type="hidden" value="60fef385fe8f254e197abc154715108323b065ad">
+</input></input></input></input></input></form>
+</div>
+</div>
+<div class="LoginDialog-footer modal-footer u-textCenter">
+        Don't have an account? <a class="LoginDialog-signupLink" href="https://twitter.com/signup">Sign up »</a>
+</div>
+</div>
+</div>
+</div>
+<div class="SignupDialog modal-container u-textCenter" id="signup-dialog">
+<div class="close-modal-background-target"></div>
+<div class="modal modal-large draggable">
+<div class="SignupDialog-content modal-content">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--medium">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title">Sign up for Twitter</h3>
+</div>
+<div class="SignupDialog-body modal-body">
+<div class="SignupDialog-icon">
+<span class="Icon Icon--bird Icon--extraLarge"></span>
+</div>
+<h2 class="SignupDialog-heading">Not on Twitter? Sign up, tune into the things you care about, and get updates as they happen.</h2>
+<div class="SignupDialog-form">
+<div class="signup SignupForm ">
+<a class="SignupForm-submit u-block u-textCenter js-signup btn primary-btn" data-component="dialog" data-element="signup" href="https://twitter.com/signup" role="button">Sign up</a>
+</div>
+</div>
+</div>
+<div class="SignupDialog-footer modal-footer u-textCenter">
+        Have an account? <a class="SignupDialog-signinLink" href="/login">Log in »</a>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-container" id="sms-codes-dialog">
+<div class="close-modal-background-target"></div>
+<div class="modal modal-medium draggable">
+<div class="modal-content">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--medium">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title">Two-way (sending and receiving) short codes:</h3>
+</div>
+<div class="modal-body">
+<table cellpadding="0" cellspacing="0" id="sms_codes">
+<thead>
+<tr>
+<th>Country</th>
+<th>Code</th>
+<th>For customers of</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>United States</td>
+<td>40404</td>
+<td>(any)</td>
+</tr>
+<tr>
+<td>Canada</td>
+<td>21212</td>
+<td>(any)</td>
+</tr>
+<tr>
+<td>United Kingdom</td>
+<td>86444</td>
+<td>Vodafone, Orange, 3, O2</td>
+</tr>
+<tr>
+<td>Brazil</td>
+<td>40404</td>
+<td>Nextel, TIM</td>
+</tr>
+<tr>
+<td>Haiti</td>
+<td>40404</td>
+<td>Digicel, Voila</td>
+</tr>
+<tr>
+<td>Ireland</td>
+<td>51210</td>
+<td>Vodafone, O2</td>
+</tr>
+<tr>
+<td>India</td>
+<td>53000</td>
+<td>Bharti Airtel, Videocon, Reliance</td>
+</tr>
+<tr>
+<td>Indonesia</td>
+<td>89887</td>
+<td>AXIS, 3, Telkomsel, Indosat, XL Axiata</td>
+</tr>
+<tr>
+<td rowspan="2">Italy</td>
+<td>4880804</td>
+<td>Wind</td>
+</tr>
+<tr>
+<td>3424486444</td>
+<td>Vodafone</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="3">
+        » <a class="js-initial-focus" href="http://support.twitter.com/articles/14226-how-to-find-your-twitter-short-code-or-long-code" target="_blank">See SMS short codes for other countries</a>
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-container" id="leadgen-confirm-dialog">
+<div class="close-modal-background-target"></div>
+<div class="modal draggable">
+<div class="modal-content">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--medium">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title">Confirmation</h3>
+</div>
+<div class="modal-body">
+<div class="leadgen-card-container">
+<div class="media">
+<iframe class="cards2-promotion-iframe" frameborder="0" scrolling="no" src="">
+</iframe>
+</div>
+</div>
+<div class="js-macaw-cards-iframe-container" data-card-name="promotion">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="AuthWebViewDialog modal-container" id="auth-webview-dialog">
+<div class="close-modal-background-target"></div>
+<div class="modal draggable">
+<div class="modal-content">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--large">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title"> </h3>
+</div>
+<div class="modal-body">
+<div class="auth-webview-view-container">
+<div class="media">
+<iframe class="auth-webview-card-iframe js-initial-focus" frameborder="0" height="500px" scrolling="no" src="" width="590px">
+</iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-container" id="promptbird-modal-prompt">
+<div class="close-modal-background-target"></div>
+<div class="modal">
+<button class="modal-btn js-promptDismiss modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--medium">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-content"></div>
+</div>
+</div>
+<div class="PaymentOrderDialog modal-container" id="payment-order-detail-dialog">
+<div class="close-modal-background-target"></div>
+<div class="modal draggable">
+<div class="modal-content">
+<button class="modal-btn modal-close js-close" type="button">
+<span class="Icon Icon--close Icon--large">
+<span class="visuallyhidden">Close</span>
+</span>
+</button>
+<div class="modal-header">
+<h3 class="modal-title">Buy Now</h3>
+</div>
+<div class="modal-body">
+<div class="alert">
+<h4>Hmm... Something went wrong. Please try again.</h4>
+</div>
+<div class="spinner-bigger"></div>
+<div class="PaymentOrderDialog-orderDetails"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal-container" id="create-custom-timeline-dialog"></div>
+<div class="modal-container" id="edit-custom-timeline-dialog"></div>
+<div class="modal-container" id="curate-dialog"></div>
+<div class="modal-container" id="media-edit-dialog"></div>
+<div class="PermalinkOverlay PermalinkOverlay-with-background " id="permalink-overlay">
+<button class="PermalinkOverlay-next PermalinkOverlay-button u-posFixed js-next" type="button">
+<span class="Icon Icon--caretLeft Icon--large"></span>
+<span class="u-hiddenVisually">Next Tweet from user</span>
+</button>
+<div class="PermalinkOverlay-modal">
+<div class="PermalinkOverlay-spinnerContainer u-hidden">
+<div class="PermalinkOverlay-spinner"></div>
+</div>
+<div class="PermalinkOverlay-content">
+<div class="PermalinkOverlay-body">
+</div>
+</div>
+</div>
+</div>
+<div class="hidden" id="hidden-content">
+<iframe aria-hidden="true" class="tweet-post-iframe" name="tweet-post-iframe"></iframe>
+<iframe aria-hidden="true" class="dm-post-iframe" name="dm-post-iframe"></iframe>
+</div>
+<div id="spoonbill-outer"></div>
+</body>
+</html>
