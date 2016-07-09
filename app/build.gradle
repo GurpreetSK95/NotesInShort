@@ -33,9 +33,8 @@ dependencies {
     compile 'com.frosquivel:magicalcamera:1.0'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-
-
-
+    compile 'com.github.d-max:spots-dialog:0.4@aar'
+    compile 'com.afollestad.material-dialogs:core:0.8.6.1'
 }
 
 apply plugin: 'com.google.gms.google-services'

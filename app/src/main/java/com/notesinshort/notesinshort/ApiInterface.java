@@ -13,6 +13,6 @@ import retrofit2.http.Query;
 public interface ApiInterface {
 
     @GET("")
-    public void getData();
+    void getNotes();
 
 }

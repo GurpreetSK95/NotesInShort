@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import java.net.URI;
+
 import java.util.ArrayList;
 import android.Manifest;
 import android.app.ProgressDialog;
@@ -36,6 +37,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.frosquivel.magicalcamera.MagicalCamera;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
@@ -50,6 +52,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import dmax.dialog.SpotsDialog;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -84,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView;
     ProgressDialog progress;
     File f;
+    ArrayList<String> files = new ArrayList<>();
 
 
     //a regular quality, if you declare with 50 is a worst quality and if you declare with 4000 is the better quality
@@ -149,19 +153,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        SpotsDialog dialog = new SpotsDialog(MainActivity.this);
+        dialog.show();
+        getfile(root);
         choose_document.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menu.close(true);
-                progress = new ProgressDialog(getApplicationContext());
-                progress.setMessage("Downloading Music");
-                progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                progress.setIndeterminate(true);
                 show_documents();
+                new MaterialDialog.Builder(MainActivity.this)
+                        .title("Choose file to share")
+                        .items(fileList)
+                        .itemsCallback(new MaterialDialog.ListCallback() {
+                            @Override
+                            public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+                                //Toast.makeText(getApplicationContext(), which + " is selected!", Toast.LENGTH_SHORT).show();
+
+                                //CHANGE API ENDPOINT HERE
+
+                                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                                shareIntent.setType("text/*");
+                                startActivity(shareIntent);
+                            }
+                        })
+                        .show();
             }
         });
+        dialog.dismiss();
 
         //Removed mAuth get instance code
+
+        getNotes();
 
         user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -211,6 +232,38 @@ public class MainActivity extends AppCompatActivity {
 
         adapter.notifyDataSetChanged();
 
+    }
+
+    private void getNotes(){
+        final ProgressDialog loading = ProgressDialog.show(this,"Fetching Data","Please wait...",false,false);
+
+        //Creating a rest adapter
+        RestAdapter adapter = new RestAdapter.Builder()
+                .setEndpoint(ROOT_URL)
+                .build();
+
+        //Creating an object of our api interface
+        BooksAPI api = adapter.create(BooksAPI.class);
+
+        //Defining the method
+        api.getBooks(new Callback<List<Book>>() {
+            @Override
+            public void success(List<Book> list, Response response) {
+                //Dismissing the loading progressbar
+                loading.dismiss();
+
+                //Storing the data in our list
+                books = list;
+
+                //Calling a method to show the list
+                showList();
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                //you can handle the errors here
+            }
+        });
     }
 
     public interface ClickListener {
@@ -321,6 +374,7 @@ public class MainActivity extends AppCompatActivity {
             if (!fileList.get(i).isDirectory() && fileList.get(i).getName().endsWith(".pdf")) {
                 Log.v(TAG, fileList.get(i).getName());
                 //textView.setTextColor(Color.parseColor("#FF0000"));
+
             } else {
                 //view.addView(textView);
             }
@@ -331,20 +385,13 @@ public class MainActivity extends AppCompatActivity {
     public ArrayList<File> getfile(File dir) {
         File listFile[] = dir.listFiles();
         if (listFile != null && listFile.length > 0) {
-            for (int i = 0; i < listFile.length; i++) {
+            for (int i = listFile.length-1; i > 0; i--) {
 
-                if (listFile[i].isDirectory()) {
+                if (!listFile[i].isDirectory() && listFile[i].getName().endsWith(".pdf")) {
                     fileList.add(listFile[i]);
                     getfile(listFile[i]);
-
-                } else {
-                    if (listFile[i].getName().endsWith(".pdf"))
-
-                    {
-                        fileList.add(listFile[i]);
-                    }
+                    files.add(listFile[i].getName());
                 }
-
             }
         }
         return fileList;
