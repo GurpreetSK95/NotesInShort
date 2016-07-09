@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "43780225701",
+    "firebase_url": "https://notesinshort-d46ec.firebaseio.com",
+    "project_id": "notesinshort-d46ec",
+    "storage_bucket": "notesinshort-d46ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43780225701:android:88a1f66cc6da36a7",
+        "android_client_info": {
+          "package_name": "com.notesinshort.notesinshort"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "43780225701-4pa5vnv0hcac1f840jrgl04mi3s3q4sl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRdcG8R6xKLkXzvdTMVG9c5idViiJo9AQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
