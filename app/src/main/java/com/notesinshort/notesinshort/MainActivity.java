@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
     ListView lv;
     ListAdapter listAdapter;
     ArrayList<String> files = new ArrayList<>();
+    public static final String rootUrl = "https://notes-in-short.herokuapp.com/";
 
 
     //a regular quality, if you declare with 50 is a worst quality and if you declare with 4000 is the better quality
