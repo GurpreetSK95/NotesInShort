@@ -1,5 +1,4 @@
 <resources>
-<<<<<<< HEAD
     <string name="app_name">NotesInShorts</string>
 
     <!-- Strings related to login -->
@@ -14,9 +13,6 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-=======
-    <string name="app_name">Notes In Shorts</string>
-
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="hint_name">Full Name</string>
@@ -40,5 +36,4 @@
     <string name="login">Login</string>
     <string name="sign_up">Sign Up</string>
     <string name="logout">Logout</string>
->>>>>>> origin/master
 </resources>
