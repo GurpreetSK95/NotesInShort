@@ -2,6 +2,10 @@
 import six
 from flask import Flask, jsonify, abort, request, make_response, url_for
 from flask.ext.httpauth import HTTPBasicAuth
+from havenondemand.hodclient import *
+
+
+client = HODClient("API_KEY", version="v1")
 
 app = Flask(__name__, static_url_path="")
 #auth = HTTPBasicAuth()
