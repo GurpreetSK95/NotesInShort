@@ -1,9 +1,11 @@
 package com.notesinshort.notesinshort;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,6 +18,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.frosquivel.magicalcamera.MagicalCamera;
 import com.github.clans.fab.FloatingActionButton;
@@ -28,6 +32,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -47,10 +52,17 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionMenu menu;
     MagicalCamera magicalCamera;
     ImageView imageView;
+    ProgressDialog progress;
+
 
     //a regular quality, if you declare with 50 is a worst quality and if you declare with 4000 is the better quality
     //only need to play with this variable (0 to 4000 ... or in other words, worst to better :D)
     private int RESIZE_PHOTO_PIXELS_PERCENTAGE = 1000;
+
+
+    private File root;
+    private ArrayList<File> fileList = new ArrayList<File>();
+    private LinearLayout view;
 
 
     @Override
@@ -62,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
         camera = (FloatingActionButton) findViewById(R.id.camera);
         choose_document = (FloatingActionButton) findViewById(R.id.choose_document);
         imageView = (ImageView) findViewById(R.id.imageView);
+        view = (LinearLayout) findViewById(R.id.view);
+
+        //getting SDcard root path
+        root = new File(Environment.getExternalStorageDirectory()
+                .getAbsolutePath());
 
         magicalCamera = new MagicalCamera(this, RESIZE_PHOTO_PIXELS_PERCENTAGE);
 
@@ -81,7 +98,12 @@ public class MainActivity extends AppCompatActivity {
         choose_document.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                open_document();
+                menu.close(true);
+                progress = new ProgressDialog(getApplicationContext());
+                progress.setMessage("Downloading Music");
+                progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                progress.setIndeterminate(true);
+                show_documents();
             }
         });
 
@@ -140,14 +162,53 @@ public class MainActivity extends AppCompatActivity {
         //call this method ever
         magicalCamera.resultPhoto(requestCode, resultCode, data);
 
-        //with this form you obtain the bitmap
-        imageView.setImageBitmap(magicalCamera.getMyPhoto());
-
         if (writePhotoFile(magicalCamera.getMyPhoto(), "Test", "NotesInShort", MagicalCamera.JPEG, true)) {
             Log.d(TAG, "File has been saved.");
+            imageView.setImageBitmap(magicalCamera.getMyPhoto());
         } else {
             Log.d(TAG, "Error in saving file.");
         }
+    }
+
+    public void show_documents() {
+        getfile(root);
+
+        for (int i = 0; i < fileList.size(); i++) {
+            TextView textView = new TextView(this);
+            textView.setText(fileList.get(i).getName());
+            textView.setPadding(5, 5, 5, 5);
+
+            //System.out.println(fileList.get(i).getName());
+
+            if (fileList.get(i).isDirectory()) {
+                textView.setTextColor(Color.parseColor("#FF0000"));
+            } else {
+                view.addView(textView);
+            }
+        }
+        progress.dismiss();
+    }
+
+    public ArrayList<File> getfile(File dir) {
+        File listFile[] = dir.listFiles();
+        if (listFile != null && listFile.length > 0) {
+            for (int i = 0; i < listFile.length; i++) {
+
+                if (listFile[i].isDirectory()) {
+                    fileList.add(listFile[i]);
+                    getfile(listFile[i]);
+
+                } else {
+                    if (listFile[i].getName().endsWith(".pdf"))
+
+                    {
+                        fileList.add(listFile[i]);
+                    }
+                }
+
+            }
+        }
+        return fileList;
     }
 
     public void open_document() {
