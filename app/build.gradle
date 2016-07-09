@@ -30,7 +30,6 @@ dependencies {
     compile 'com.github.clans:fab:1.6.2'
     compile 'com.frosquivel:magicalcamera:1.0'
 
-
 }
 
 apply plugin: 'com.google.gms.google-services'

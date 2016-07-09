@@ -47,11 +47,11 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionMenu menu;
     MagicalCamera magicalCamera;
     ImageView imageView;
-    long unixTime;
 
     //a regular quality, if you declare with 50 is a worst quality and if you declare with 4000 is the better quality
     //only need to play with this variable (0 to 4000 ... or in other words, worst to better :D)
     private int RESIZE_PHOTO_PIXELS_PERCENTAGE = 1000;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,6 +151,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void open_document() {
+
+        Log.d(TAG, "Inside open document function.");
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setType("application/pdf");
+        startActivity(intent);
 
     }
 
