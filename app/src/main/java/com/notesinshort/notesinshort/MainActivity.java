@@ -1,39 +1,29 @@
 package com.notesinshort.notesinshort;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.GestureDetector;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.frosquivel.magicalcamera.MagicalCamera;
 import com.github.clans.fab.FloatingActionButton;
@@ -44,10 +34,23 @@ import com.google.firebase.auth.FirebaseUser;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.http.Multipart;
+import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 
 /**
@@ -55,12 +58,11 @@ import java.util.Calendar;
  */
 public class MainActivity extends AppCompatActivity {
 
+    final private int CAMERA_PERMISSIONS_REQUEST = 123;
+    final private int SAVE_IMAGE_PERMISSIONS_REQUEST = 456;
     RecyclerView rv;
     NoteAdapter adapter;
     ArrayList<Note> list = new ArrayList<>();
-
-    final private int CAMERA_PERMISSIONS_REQUEST = 123;
-    final private int SAVE_IMAGE_PERMISSIONS_REQUEST = 456;
     Bitmap.CompressFormat jpeg = MagicalCamera.JPEG;
     Bitmap.CompressFormat png = MagicalCamera.PNG;
     Bitmap.CompressFormat webp = MagicalCamera.WEBP;
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
     MagicalCamera magicalCamera;
     ImageView imageView;
     ProgressDialog progress;
+    File f;
 
 
     //a regular quality, if you declare with 50 is a worst quality and if you declare with 4000 is the better quality
@@ -105,6 +108,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }));
+
+        getPermissionToOpenCamera();
+        getPermissionToSaveImage();
 
         prepareMovieData();
 
@@ -197,55 +203,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public interface ClickListener {
-        void onClick(View view, int position);
-
-        void onLongClick(View view, int position);
-    }
-
-    public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
-
-        private GestureDetector gestureDetector;
-        private MainActivity.ClickListener clickListener;
-
-        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final MainActivity.ClickListener clickListener) {
-            this.clickListener = clickListener;
-            gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public boolean onSingleTapUp(MotionEvent e) {
-                    return true;
-                }
-
-                @Override
-                public void onLongPress(MotionEvent e) {
-                    View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
-                    if (child != null && clickListener != null) {
-                        clickListener.onLongClick(child, recyclerView.getChildPosition(child));
-                    }
-                }
-            });
-        }
-
-        @Override
-        public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-
-            View child = rv.findChildViewUnder(e.getX(), e.getY());
-            if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
-                clickListener.onClick(child, rv.getChildPosition(child));
-            }
-            return false;
-        }
-
-        @Override
-        public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-        }
-
-        @Override
-        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-        }
-    }
-
     public void openCamera() {
 
         magicalCamera.takePhoto();
@@ -291,6 +248,7 @@ public class MainActivity extends AppCompatActivity {
         if (writePhotoFile(magicalCamera.getMyPhoto(), "Test", "NotesInShort", MagicalCamera.JPEG, true)) {
             Log.d(TAG, "File has been saved.");
             imageView.setImageBitmap(magicalCamera.getMyPhoto());
+            uploadFile(Uri.parse(f.getAbsolutePath()));
         } else {
             Log.d(TAG, "Error in saving file.");
         }
@@ -369,7 +327,7 @@ public class MainActivity extends AppCompatActivity {
             if (!wallpaperDirectory.exists()) {
                 wallpaperDirectory.mkdirs();
             }
-            File f = new File(wallpaperDirectory, newPhotoName);
+            f = new File(wallpaperDirectory, newPhotoName);
 
             try {
                 f.createNewFile();
@@ -378,7 +336,6 @@ public class MainActivity extends AppCompatActivity {
                 fo.close();
                 getApplicationContext().sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,
                         Uri.parse("file://" + f.getAbsolutePath())));
-
                 return true;
             } catch (Exception ev) {
                 return false;
@@ -412,5 +369,107 @@ public class MainActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
+
+    public interface ClickListener {
+        void onClick(View view, int position);
+
+        void onLongClick(View view, int position);
+    }
+
+    public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
+
+        private GestureDetector gestureDetector;
+        private MainActivity.ClickListener clickListener;
+
+        public RecyclerTouchListener(Context context, final RecyclerView recyclerView, final MainActivity.ClickListener clickListener) {
+            this.clickListener = clickListener;
+            gestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener() {
+                @Override
+                public boolean onSingleTapUp(MotionEvent e) {
+                    return true;
+                }
+
+                @Override
+                public void onLongPress(MotionEvent e) {
+                    View child = recyclerView.findChildViewUnder(e.getX(), e.getY());
+                    if (child != null && clickListener != null) {
+                        clickListener.onLongClick(child, recyclerView.getChildPosition(child));
+                    }
+                }
+            });
+        }
+
+        @Override
+        public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            View child = rv.findChildViewUnder(e.getX(), e.getY());
+            if (child != null && clickListener != null && gestureDetector.onTouchEvent(e)) {
+                clickListener.onClick(child, rv.getChildPosition(child));
+            }
+            return false;
+        }
+
+        @Override
+        public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+        }
+
+        @Override
+        public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+        }
+    }
+
+    public interface FileUploadService {
+        @Multipart
+        @POST("upload")
+        Call<ResponseBody> upload(@Part("description") RequestBody description,
+                                  @Part MultipartBody.Part file);
+    }
+
+    private void uploadFile(Uri fileUri) {
+        // create upload service client
+        FileUploadService service =
+                ServiceGenerator.createService(FileUploadService.class);
+
+        // https://github.com/iPaulPro/aFileChooser/blob/master/aFileChooser/src/com/ipaulpro/afilechooser/utils/FileUtils.java
+        // use the FileUtils to get the actual file by uri
+        //File file = FileUtils.getFile(this, fileUri);
+
+        File file = null;
+        try {
+            file = new File(new URI("file://" + fileUri.getPath()));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        // create RequestBody instance from file
+        RequestBody requestFile =
+                RequestBody.create(MediaType.parse("multipart/form-data"), file);
+
+        // MultipartBody.Part is used to send also the actual file name
+        MultipartBody.Part body =
+                MultipartBody.Part.createFormData("picture", file.getName(), requestFile);
+
+        // add another part within the multipart request
+        String descriptionString = "hello, this is description speaking";
+        RequestBody description =
+                RequestBody.create(
+                        MediaType.parse("multipart/form-data"), descriptionString);
+
+        // finally, execute the request
+        Call<ResponseBody> call = service.upload(description, body);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call,
+                                   Response<ResponseBody> response) {
+                Log.v("Upload", "success");
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("Upload error:", t.getMessage());
+            }
+        });
+    }
+
 
 }

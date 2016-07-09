@@ -122,6 +122,8 @@ public class LoginActivity extends Activity {
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             Log.d(TAG, "Login successful.");
+                            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(i);
                         }
 
                     }
