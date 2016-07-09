@@ -2,10 +2,9 @@
 import six
 from flask import Flask, jsonify, abort, request, make_response, url_for
 from flask.ext.httpauth import HTTPBasicAuth
-from havenondemand.hodclient import *
+import independent
 
 
-client = HODClient("API_KEY", version="v1")
 
 app = Flask(__name__, static_url_path="")
 #auth = HTTPBasicAuth()
@@ -23,6 +22,12 @@ app = Flask(__name__, static_url_path="")
 #     # return 403 instead of 401 to prevent browsers from displaying the default
 #     # auth dialog
 #     return make_response(jsonify({'error': 'Unauthorized access'}), 403)
+
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
 @app.errorhandler(400)
@@ -61,8 +66,12 @@ def make_public_task(task):
             new_task[field] = task[field]
     return new_task
 
+@app.route("/")
+def helloWorld():
+    return "Hello, world! This is just an API <a href='https://github.com/satwikkansal/NotesInShort'>Fork me on GitHub!</a>"
 
-@app.route('/api/dump', methods=['GET'])
+
+@app.route('/api/notes', methods=['GET'])
 # @auth.login_required
 def get_tasks():
      return jsonify({'tasks': [make_public_task(task) for task in tasks]})
@@ -77,7 +86,7 @@ def get_task(task_id):
     return jsonify({'task': make_public_task(task[0])})
 
 
-@app.route('/todo/api/v1.0/tasks', methods=['POST'])
+@app.route('/api/dump', methods=['POST'])
 #@auth.login_required
 def create_task():
     if not request.json or 'title' not in request.json:
@@ -90,6 +99,30 @@ def create_task():
     }
     tasks.append(task)
     return jsonify({'task': make_public_task(task)}), 201
+
+@app.route('/upload', methods=['POST'])
+def upload_file():
+    
+    if request.method == 'POST':
+        file = request.files['file']
+
+        if file and allowed_file(file.filename):
+            response = api.image_request(file, file.filename, {
+                'image_request[locale]': 'en-US',
+            })
+
+            status = api.image_response(response['token'])
+            if status['status'] != cloudsight.STATUS_NOT_COMPLETED:
+                # Done!
+                pass
+            status = api.wait(response['token'], timeout=60)
+
+            #print(status)
+
+            result = nix.search(status["name"], results="0:1").json()["hits"][0]["fields"]["item_id"]
+            #user_feed(result)
+            
+            return jsonify(result=nix.item(id=result).json())
 
 
 @app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['PUT'])

@@ -6,4 +6,7 @@ MarkupSafe==0.23
 Werkzeug==0.9.6
 itsdangerous==0.24
 six==1.9.0
+requests
+git+https://github.com/HPE-Haven-OnDemand/havenondemand-python
+havenondemand
 
