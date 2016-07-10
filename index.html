@@ -1,16 +1,5 @@
 <!doctype html>
-<!--
-  Copyright 2015 Google Inc. All rights reserved.
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-      https://www.apache.org/licenses/LICENSE-2.0
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License
--->
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -39,12 +28,12 @@
   <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
   <link rel="apple-touch-icon" href="/images/touch/touch-icon-180x180.png">
   <link rel="apple-touch-icon-precomposed" href="/images/touch/touch-icon-180x180.png">
-  <meta name="apple-mobile-web-app-status-bar-style" content="#303F9F">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#a162bb">
 
   <!-- Tile icon for Win8 -->
   <meta name="msapplication-TileImage" content="/images/touch/touch-icon-144x144.png">
-  <meta name="msapplication-TileColor" content="#3372DF">
-  <meta name="msapplication-navbutton-color" content="#303F9F">
+  <meta name="msapplication-TileColor" content="#a162bb">
+  <meta name="msapplication-navbutton-color" content="#a162bb">
 
   <!-- Material Design Lite imports -->
   <link rel="stylesheet" href="/bower_components/material-design-lite/material.min.css">
@@ -119,7 +108,7 @@
       <div class="mdl-tab">
         <a href="/" id="fp-menu-home" class="mdl-layout__tab fp-signed-in-only is-active mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">home</i> Home</a>
         <a href="/feed" id="fp-menu-feed" class="mdl-layout__tab mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">trending_up</i> Feed</a>
-        <input id="fp-mediacapture" type="file" accept="image/*;capture=camera">
+        <input id="fp-mediacapture" type="file" accept="image/*, application/pdf">
         <button class="fp-signed-in-only mdl-button mdl-js-button mdl-button--fab mdl-cell--hide-tablet mdl-color--amber-400 mdl-shadow--4dp mdl-js-ripple-effect" id="add">
           <i class="material-icons">file_upload</i>
         </button>
@@ -322,6 +311,8 @@
         </div>
       </div>
     </section>
+
+
 
     <!-- Toast -->
     <div aria-live="assertive" aria-atomic="true" aria-relevant="text" class="mdl-snackbar mdl-js-snackbar">

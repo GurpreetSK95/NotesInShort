@@ -1,6 +1,6 @@
 {
-  "name": "Friendly Pix",
-  "short_name": "FriendlyPix",
+  "name": "NotesInShort",
+  "short_name": "NotesInShort",
   "icons": [{
     "src": "/images/touch/touch-icon-128x128.png",
     "sizes": "128x128",

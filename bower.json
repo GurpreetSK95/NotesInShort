@@ -1,19 +1,20 @@
 {
-  "name": "friendlypix",
-  "description": "Share your pics with FriendlyPix. Powered by Firebase.",
+  "name": "NotesInShort",
+  "description": "Share your notes with NotesInShort. Powered by Firebase.",
   "version": "1.0.0",
   "authors": [
-    "Nicolas Garnier <nivco@google.com> (https://firebase.google.com/)"
+    "Faiz Ahmad. contact@faiz.io"
   ],
-  "homepage": "https://friendly-pix.com/",
+  "homepage": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/firebase/friendlypix"
+    "url": "http://github.com/NotesInShort"
   },
   "license": "Apache v2.0",
   "keywords": [
     "pictures",
     "photos",
+    "notes",
     "firebase",
     "realtime",
     "sharing"
