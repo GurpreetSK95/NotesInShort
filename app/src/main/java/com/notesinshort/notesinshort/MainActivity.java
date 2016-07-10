@@ -119,11 +119,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
                 Note movie = list.get(position);
-                Toast.makeText(getApplicationContext(), movie.getSummary() + " is selected!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), movie.getSummary() + " is selected!", Toast.LENGTH_SHORT).show();
+                boolean wrapInScrollView = true;
+                new MaterialDialog.Builder(MainActivity.this)
+                        .title(summary)
+                        .customView(R.layout.popup_dialog, wrapInScrollView)
+                        .positiveText("Done")
+                        .show();
             }
 
             @Override
             public void onLongClick(View view, int position) {
+
+                Note movie = list.get(position);
+
 
             }
         }));
@@ -180,32 +189,33 @@ public class MainActivity extends AppCompatActivity {
                                 .itemsCallback(new MaterialDialog.ListCallback() {
                                     @Override
                                     public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+                                        String everything="";
                                         switch(which){
                                             case 0:
-                                                String everything = Constants.dummyPdfJson;
-                                                try {
-                                                    JSONObject obj = new JSONObject(everything);
-                                                    summary =  obj.getString("image_text").substring(0, 200);
-                                                    imageLink = obj.getString("relevant_images");
-                                                    sentiment = obj.getString("overall_sentiments");
-                                                    keywords = obj.getString("keywords");
-                                                    prepareMovieData(summary, imageLink, sentiment, keywords, "");
-                                                } catch (JSONException e) {
-                                                    e.printStackTrace();
-                                                }
-
+                                                everything = Constants.trumpJson;
                                                 break;
                                             case 1:
-
+                                                everything = Constants.telegramJson;
                                                 break;
                                             case 2:
-
+                                                everything = Constants.hackathonJson;
                                                 break;
                                             case 3:
-
+                                                everything = Constants.dummyPdfJson;
                                                 break;
+                                            default: everything = Constants.dummyPdfJson;
                                         }
-
+                                        try {
+                                            JSONObject obj = new JSONObject(everything);
+                                            summary =  obj.getString("image_text");
+                                            String summaryTemp =  obj.getString("image_text").substring(0, 200);
+                                            imageLink = obj.getString("relevant_images");
+                                            sentiment = obj.getString("overall_sentiments");
+                                            keywords = obj.getString("keywords");
+                                            prepareMovieData(summaryTemp, imageLink, sentiment, keywords, "");
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
                                     }
                                 })
                                 .show();
@@ -232,41 +242,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void TTS(View view){
+
+    }
+
     public void prepareMovieData(String summary, String image, String reaction, String keywords, String entities) {
 
         Note movie = new Note(summary, image, reaction, keywords, entities);
         list.add(movie);
-/*        movie = new Note("Inside Out", "Animation, Kids & Family", "2015");
-        list.add(movie);
-        movie = new Note("Star Wars: Episode VII - The Force Awakens", "Action", "2015");
-        list.add(movie);
-        movie = new Note("Shaun the Sheep", "Animation", "2015");
-        list.add(movie);
-        movie = new Note("The Martian", "Science Fiction & Fantasy", "2015");
-        list.add(movie);
-        movie = new Note("Mission: Impossible Rogue Nation", "Action", "2015");
-        list.add(movie);
-        movie = new Note("Up", "Animation", "2009");
-        list.add(movie);
-        movie = new Note("Star Trek", "Science Fiction", "2009");
-        list.add(movie);
-        movie = new Note("The LEGO Note", "Animation", "2014");
-        list.add(movie);
-        movie = new Note("Iron Man", "Action & Adventure", "2008");
-        list.add(movie);
-        movie = new Note("Aliens", "Science Fiction", "1986");
-        list.add(movie);
-        movie = new Note("Chicken Run", "Animation", "2000");
-        list.add(movie);
-        movie = new Note("Back to the Future", "Science Fiction", "1985");
-        list.add(movie);
-        movie = new Note("Raiders of the Lost Ark", "Action & Adventure", "1981");
-        list.add(movie);
-        movie = new Note("Goldfinger", "Action & Adventure", "1965");
-        list.add(movie);
-        movie = new Note("Guardians of the Galaxy", "Science Fiction & Fantasy", "2014");
-        list.add(movie);
-*/
         adapter.notifyDataSetChanged();
 
     }
@@ -275,6 +258,12 @@ public class MainActivity extends AppCompatActivity {
 
         magicalCamera.takePhoto();
 
+    }
+
+    public void shareIt(View view){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/*");
+        startActivity(intent);
     }
 
     public void getPermissionToOpenCamera() {
