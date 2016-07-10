@@ -37,14 +37,27 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.google.gson.Gson;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Scanner;
 
 import dmax.dialog.SpotsDialog;
 import okhttp3.MediaType;
@@ -80,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView;
     ProgressDialog progress;
     File f;
+    String jsonResponse;
     //a regular quality, if you declare with 50 is a worst quality and if you declare with 4000 is the better quality
     //only need to play with this variable (0 to 4000 ... or in other words, worst to better :D)
     private int RESIZE_PHOTO_PIXELS_PERCENTAGE = 1000;
@@ -105,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
                 Note movie = list.get(position);
-                Toast.makeText(getApplicationContext(), movie.getTitle() + " is selected!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), movie.getSummary() + " is selected!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -114,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }));
 
-        prepareMovieData();
+        //prepareMovieData();
 
         menu = (FloatingActionMenu) findViewById(R.id.menu);
         camera = (FloatingActionButton) findViewById(R.id.camera);
@@ -155,24 +169,84 @@ public class MainActivity extends AppCompatActivity {
 
                 SpotsDialog dialog = new SpotsDialog(MainActivity.this);
                 dialog.show();
-                getfile(root);
+                //getfile(root);
                 choose_document.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        show_documents();
+                        //show_documents();
                         new MaterialDialog.Builder(MainActivity.this)
                                 .title("Choose file to share")
-                                .items(files)
+                                .items(R.array.array_list)
                                 .itemsCallback(new MaterialDialog.ListCallback() {
                                     @Override
                                     public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
                                         //Toast.makeText(getApplicationContext(), which + " is selected!", Toast.LENGTH_SHORT).show();
 
                                         //CHANGE API ENDPOINT HERE
+                                        /*File fi = new File(String.valueOf(Uri.fromFile(new File("sdcard/aaa.pdf"))));
+                                        uploadFile(Uri.parse("sdcard/aaa.pdf"));         //problem here
+                                        Uri uri = Uri.fromFile(fi);
+                                        FirebaseStorage storage = FirebaseStorage.getInstance();
+                                        StorageReference storageRef = storage.getReferenceFromUrl("gs://notesinshort-d46ec.appspot.com");
+                                        StorageReference oceansRef = storageRef.child("pdfs/"+uri.getLastPathSegment());
+                                        UploadTask uploadTask = oceansRef.putFile(uri);
 
-                                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                                        shareIntent.setType("text/*");
-                                        startActivity(shareIntent);
+                                        uploadTask.addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception exception) {
+                                                // Handle unsuccessful uploads
+                                            }
+                                        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                            @Override
+                                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
+                                                Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                                                Log.d(TAG, "Download url for firebase pdf = " + downloadUrl);
+                                            }*/
+
+                                        switch(which){
+                                            case 0:
+                                                InputStream raw;
+                                                String everything = "";
+                                                try {
+                                                    raw = getApplicationContext().getAssets().open("dummypdf.json");
+                                                    BufferedReader br = new BufferedReader(new FileReader(String.valueOf(raw)));
+                                                    StringBuilder sb = new StringBuilder();
+                                                    String line = br.readLine();
+                                                    while (line != null) {
+                                                        sb.append(line);
+                                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                                                            sb.append(System.lineSeparator());
+                                                        }
+                                                        line = br.readLine();
+                                                    }
+                                                    everything = sb.toString();
+                                                    Log.v(TAG, everything);
+                                                    /*Scanner s = new Scanner(getResources().openRawResource(R.raw.dummypdf));
+                                                    try {
+                                                        while (s.hasNext()) {
+                                                            everything = s.next();
+                                                        }
+                                                    } finally {
+                                                        s.close();
+                                                        Log.v(TAG, everything);
+                                                    }*/
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
+                                                }
+
+                                                break;
+                                            case 1:
+
+                                                break;
+                                            case 2:
+
+                                                break;
+                                            case 3:
+
+                                                break;
+                                        }
+
                                     }
                                 })
                                 .show();
@@ -199,11 +273,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void prepareMovieData() {
+    public void prepareMovieData(String summary, String image, int reaction, String keywords, String entities) {
 
-        Note movie = new Note("Mad Max: Fury Road", "Action & Adventure", "2015");
+        Note movie = new Note(summary, image, reaction, keywords, entities);
         list.add(movie);
-        movie = new Note("Inside Out", "Animation, Kids & Family", "2015");
+/*        movie = new Note("Inside Out", "Animation, Kids & Family", "2015");
         list.add(movie);
         movie = new Note("Star Wars: Episode VII - The Force Awakens", "Action", "2015");
         list.add(movie);
@@ -233,7 +307,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(movie);
         movie = new Note("Guardians of the Galaxy", "Science Fiction & Fantasy", "2014");
         list.add(movie);
-
+*/
         adapter.notifyDataSetChanged();
 
     }
@@ -303,25 +377,22 @@ public class MainActivity extends AppCompatActivity {
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
                     Uri downloadUrl = taskSnapshot.getDownloadUrl();
-
                     Log.d(TAG, "Download url for firebase image = " + downloadUrl);
-
                 }
             });
 
-
-
         } else {
             Log.d(TAG, "Error in saving file.");
+
         }
     }
-
+/*
     public void show_documents() {
         getfile(root);
 
         for (int i = 0; i < fileList.size(); i++) {
             //System.out.println(fileList.get(i).getName());
-            if (!fileList.get(i).isDirectory() && fileList.get(i).getName().endsWith(".pdf")) {
+            if (!fileList.get(i).isDirectory() && fileList.get(i).getName().endsWith(".pdf") && fileList.get(i).getName().length()<10) {
                 Log.v(TAG, fileList.get(i).getName());
                 files.add(fileList.get(i).getName());
                 //textView.setTextColor(Color.parseColor("#FF0000"));
@@ -354,7 +425,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return fileList;
     }
-
+*/
     public void open_document() {
 
         Log.d(TAG, "Inside open document function.");
@@ -437,8 +508,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void uploadFile(Uri fileUri) {
         // create upload service client
-        FileUploadService service =
-                ServiceGenerator.createService(FileUploadService.class);
+        FileUploadService service = ServiceGenerator.createService(FileUploadService.class);
 
         // https://github.com/iPaulPro/aFileChooser/blob/master/aFileChooser/src/com/ipaulpro/afilechooser/utils/FileUtils.java
         // use the FileUtils to get the actual file by uri
@@ -464,9 +534,46 @@ public class MainActivity extends AppCompatActivity {
         Call<ResponseBody> call = service.upload(description, body);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<ResponseBody> call,
-                                   Response<ResponseBody> response) {
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 Log.v("Upload", "success");
+                String json = response.raw().toString();
+                if (json != null) {
+                    try {
+                        JSONObject jsonObj = new JSONObject(json);
+
+                        // Getting JSON Array node
+                        JSONArray contacts = jsonObj.getJSONArray("parent");    //caution
+
+                        // looping through All Contacts
+                        for (int i = 0; i < contacts.length(); i++) {
+                            JSONObject c = contacts.getJSONObject(i);
+
+                            String summary = c.getString("image_text");
+                            String image = c.getString("relevant_images");
+                            int reaction = c.getInt("positive_sentiment_score");
+                            String keywords = c.getString("keywords");
+                            String useful_entities = c.getString("useful_entities");
+
+                            // Phone node is JSON Object
+                            //JSONObject entities = c.getJSONObject("useful_entities");
+                            //String mobile = entities.getString("");
+                            //String home = entities.getString("");
+                            //String office = entities.getString("");
+
+                            // tmp hashmap for single contact
+                            //HashMap<String, String> contact = new HashMap<String, String>();
+
+                            // adding each child node to HashMap key => value
+
+                            // adding contact to contact list
+                            prepareMovieData(summary, image, reaction, keywords, useful_entities);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Log.e("ServiceHandler", "Couldn't get any data from the url");
+                }
             }
 
             @Override
@@ -528,7 +635,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
         }
     }
 

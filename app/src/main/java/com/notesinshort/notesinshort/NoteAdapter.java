@@ -29,7 +29,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.MyViewHolder>{
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Note movie = list.get(position);
-        holder.title.setText(movie.getTitle());
+        holder.title.setText(movie.getSummary());
         //holder.genre.setText(movie.getGenre());
         //holder.year.setText(movie.getYear());
     }

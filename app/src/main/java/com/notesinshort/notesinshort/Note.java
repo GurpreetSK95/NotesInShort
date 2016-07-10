@@ -5,38 +5,56 @@ package com.notesinshort.notesinshort;
  */
 public class Note {
 
-    private String title, genre, year;
-
+    private String summary, image, keywords, entities;
+    int reaction;
     public Note(){
     }
 
-    public Note(String title, String genre, String year) {
-        this.title = title;
-        this.genre = genre;
-        this.year = year;
+    public Note(String summary, String image, int reaction, String keywords, String entities) {
+        this.summary = summary;
+        this.image = image;
+        this.reaction = reaction;
+        this.entities = entities;
+        this.keywords = keywords;
     }
 
-    public String getTitle() {
-        return title;
+    public String getSummary() {
+        return summary;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getImage() {
+        return image;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public String getYear() {
-        return year;
+    public String getKeywords() {
+        return keywords;
     }
 
-    public void setYear(String year) {
-        this.year = year;
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
+    }
+
+    public String getEntities() {
+        return entities;
+    }
+
+    public void setEntities(String entities) {
+        this.entities = entities;
+    }
+
+    public int getReaction() {
+        return reaction;
+    }
+
+    public void setReaction(int reaction) {
+        this.reaction = reaction;
     }
 }

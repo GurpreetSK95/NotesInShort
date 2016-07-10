@@ -36,4 +36,10 @@
     <string name="login">Login</string>
     <string name="sign_up">Sign Up</string>
     <string name="logout">Logout</string>
+    <string-array name="array_list">
+        <item>Trump.pdf</item>
+        <item>Telegram.pdf</item>
+        <item>Hackathon.pdf</item>
+        <item>dummyPDF.pdf</item>
+    </string-array>
 </resources>
