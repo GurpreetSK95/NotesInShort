@@ -38,6 +38,14 @@
             android:onClick="TTS"
             android:src="@mipmap/ic_launcher"
             android:text="Speak" />
+
+        <Button
+            android:id="@+id/TTSpause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:onClick="TTSpause"
+            android:text="Pause" />
     </LinearLayout>
 
 </LinearLayout>

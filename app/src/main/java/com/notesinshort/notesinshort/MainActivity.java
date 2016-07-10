@@ -26,6 +26,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.frosquivel.magicalcamera.MagicalCamera;
@@ -74,10 +75,11 @@ import retrofit2.http.POST;
 import retrofit2.http.Part;
 
 
+
 /**
  * Created by mayank on 9/7/16.
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
 
     final private int CAMERA_PERMISSIONS_REQUEST = 123;
     final private int SAVE_IMAGE_PERMISSIONS_REQUEST = 456;
@@ -141,14 +143,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }));
 
-        t1 = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                if(status != TextToSpeech.ERROR) {
-                    t1.setLanguage(Locale.UK);
-                }
-            }
-        });
+        t1 = new TextToSpeech(this, this);
 
         //prepareMovieData();
 
@@ -259,6 +254,10 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(getApplicationContext(), summary,Toast.LENGTH_SHORT).show();
         t1.speak(summary, TextToSpeech.QUEUE_FLUSH, null);
 
+    }
+
+    public void TTSpause(View view){
+        t1.shutdown();
     }
 
     @Override
@@ -551,6 +550,15 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("Upload error:", t.getMessage());
             }
         });
+    }
+
+    @Override
+    public void onInit(int i) {
+        if (i == TextToSpeech.SUCCESS) {
+            t1.setLanguage(Locale.getDefault());
+        } else {
+            Log.e("TTS", "Initialization failed");
+        }
     }
 
     public interface ClickListener {
