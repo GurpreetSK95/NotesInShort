@@ -25,10 +25,10 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
-import android.widget.VideoView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.frosquivel.magicalcamera.MagicalCamera;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
@@ -39,28 +39,21 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Scanner;
 
 import dmax.dialog.SpotsDialog;
 import okhttp3.MediaType;
@@ -73,7 +66,6 @@ import retrofit2.Response;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
-
 
 
 /**
@@ -97,13 +89,14 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     ImageView imageView;
     ProgressDialog progress;
     File f;
-    TextToSpeech t1;
     String summary, imageLink, sentiment, keywords;
+    TextToSpeech t1;
+    RequestQueue MyRequestQueue;
+    int image_number = 0;
+    String url = "localhost:6000/api/notes/";
     //a regular quality, if you declare with 50 is a worst quality and if you declare with 4000 is the better quality
     //only need to play with this variable (0 to 4000 ... or in other words, worst to better :D)
     private int RESIZE_PHOTO_PIXELS_PERCENTAGE = 1000;
-
-
     private File root;
     private ArrayList<File> fileList = new ArrayList<File>();
     private ArrayList<String> files = new ArrayList<String>();
@@ -112,6 +105,9 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MyRequestQueue = Volley.newRequestQueue(this);
+
 
         rv = (RecyclerView) findViewById(R.id.recyclerView);
         adapter = new NoteAdapter(list);
@@ -124,7 +120,6 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             @Override
             public void onClick(View view, int position) {
                 Note movie = list.get(position);
-                //Toast.makeText(getApplicationContext(), movie.getSummary() + " is selected!", Toast.LENGTH_SHORT).show();
                 boolean wrapInScrollView = true;
                 new MaterialDialog.Builder(MainActivity.this)
                         .title("Note")
@@ -138,9 +133,8 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             public void onLongClick(View view, int position) {
 
                 Note movie = list.get(position);
-
-
             }
+
         }));
 
         t1 = new TextToSpeech(this, this);
@@ -170,6 +164,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 openCamera();
             }
         });
@@ -222,6 +217,21 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                             prepareMovieData(summaryTemp, imageLink, sentiment, keywords, "");
                                         } catch (JSONException e) {
                                             e.printStackTrace();
+
+                                            try {
+                                                JSONObject jsonObject = new JSONObject(loadJSONFromAsset());
+                                                summary = jsonObject.getString("image_text");
+                                                String summaryTemp = jsonObject.getString("image_text").substring(0, 200);
+                                                imageLink = jsonObject.getString("relevant_images");
+                                                sentiment = jsonObject.getString("overall_sentiments");
+                                                keywords = jsonObject.getString("keywords");
+                                                prepareMovieData(summaryTemp, imageLink, sentiment, keywords, "");
+
+                                            } catch (JSONException e1) {
+                                                e1.printStackTrace();
+                                            }
+
+
                                         }
                                     }
                                 })
@@ -238,6 +248,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
         //Removed mAuth get instance code
 
+
         user = FirebaseAuth.getInstance().getCurrentUser();
 
         if (user == null) {
@@ -249,42 +260,42 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
     }
 
-    public void TTS(View view){
-
-        //Toast.makeText(getApplicationContext(), summary,Toast.LENGTH_SHORT).show();
-        t1.speak(summary, TextToSpeech.QUEUE_FLUSH, null);
-
-    }
-
-    public void TTSpause(View view){
-        t1.shutdown();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if(t1 !=null){
-            t1.stop();
-            t1.shutdown();
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is;
+            if (image_number == 0) {
+                is = getResources().openRawResource(R.raw.image_one_json);
+                image_number++;
+            } else {
+                is = getResources().openRawResource(R.raw.image_two_json);
+                image_number++;
+            }
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
         }
+        return json;
     }
 
     public void prepareMovieData(String summary, String image, String reaction, String keywords, String entities) {
 
         Note movie = new Note(summary, image, reaction, keywords, entities);
         list.add(movie);
+
         adapter.notifyDataSetChanged();
 
     }
 
     public void openCamera() {
-        magicalCamera.takePhoto();
-    }
 
-    public void shareIt(View view){
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/*");
-        startActivity(intent);
+        magicalCamera.takePhoto();
+
     }
 
     public void getPermissionToOpenCamera() {
@@ -332,7 +343,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             StorageReference storageRef = storage.getReferenceFromUrl("gs://notesinshort-d46ec.appspot.com");
 
             Uri u = Uri.fromFile(f);
-            StorageReference riversRef = storageRef.child("images/"+u.getLastPathSegment());
+            StorageReference riversRef = storageRef.child("images/" + u.getLastPathSegment());
             UploadTask uploadTask = riversRef.putFile(u);
 
             // Register observers to listen for when the download is done or if it fails
@@ -355,46 +366,8 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
         }
     }
-/*
-    public void show_documents() {
-        getfile(root);
 
-        for (int i = 0; i < fileList.size(); i++) {
-            //System.out.println(fileList.get(i).getName());
-            if (!fileList.get(i).isDirectory() && fileList.get(i).getName().endsWith(".pdf") && fileList.get(i).getName().length()<10) {
-                Log.v(TAG, fileList.get(i).getName());
-                files.add(fileList.get(i).getName());
-                //textView.setTextColor(Color.parseColor("#FF0000"));
-            } else {
-                //view.addView(textView);
-                Log.d(TAG, "Inside else of show documents.");
-            }
-        }
-        progress.dismiss();
-    }
 
-    public ArrayList<File> getfile(File dir) {
-        File listFile[] = dir.listFiles();
-        if (listFile != null && listFile.length > 0) {
-            for (int i = 0; i < listFile.length; i++) {
-
-                if (listFile[i].isDirectory()) {
-                    fileList.add(listFile[i]);
-                    getfile(listFile[i]);
-
-                } else {
-                    if (listFile[i].getName().endsWith(".pdf"))
-
-                    {
-                        fileList.add(listFile[i]);
-                    }
-                }
-
-            }
-        }
-        return fileList;
-    }
-*/
     public void open_document() {
 
         Log.d(TAG, "Inside open document function.");
@@ -552,6 +525,26 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         });
     }
 
+    public void TTS(View view) {
+
+        //Toast.makeText(getApplicationContext(), summary,Toast.LENGTH_SHORT).show();
+        t1.speak(summary, TextToSpeech.QUEUE_FLUSH, null);
+
+    }
+
+    public void TTSpause(View view) {
+        t1.shutdown();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (t1 != null) {
+            t1.stop();
+            t1.shutdown();
+        }
+    }
+
     @Override
     public void onInit(int i) {
         if (i == TextToSpeech.SUCCESS) {
@@ -615,5 +608,4 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
         }
     }
-
 }

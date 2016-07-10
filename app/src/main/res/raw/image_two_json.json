@@ -1,0 +1,120 @@
+{
+  "positive_sentiments": [
+    "able",
+    "able"
+  ],
+  "relevant_images": {
+    "bing_results": [
+      "http://addicted2success.com/wp-content/uploads/2013/07/R-Madhavan-Inspirational-Bollywood-Picture-Quote.jpg",
+      "http://24.media.tumblr.com/tumblr_lef63717EB1qd3pd0o1_500.jpg",
+      "http://25.media.tumblr.com/tumblr_licdxdpyJC1qhjulxo1_400.jpg",
+      "http://cdn.tvguide.co.uk/newsmediaimages/d1f51ade06b89c0bba276eb673d3fa053585ddc5.jpg",
+      "http://25.media.tumblr.com/tumblr_matfipa9pt1rzmi5do1_500.jpg",
+      "http://images-thumbs.thefullwiki.org/S/a/w/Saw_IV.png",
+      "http://ecx.images-amazon.com/images/I/516sr80ZYbL.jpg",
+      "http://3.bp.blogspot.com/_ZomMCJmYrWY/Sft_qbAUyPI/AAAAAAAAAOo/OeuYRc5dQ1s/s320/,222222.bmp",
+      "http://www.360nobs.com/wp-content/uploads/2016/01/IMG_5449-1024x1024.jpg",
+      "http://www.thecelebsocial.com/images/og/httppbstwimgcommediaChVgnsyWwAEONBOjpg.jpeg"
+    ],
+    "twitter_results": [],
+    "twitter_media_results": [],
+    "giphy_results": [
+      "http://media2.giphy.com/media/njGRHUjlJbdpC/giphy.gif",
+      "http://media4.giphy.com/media/4aSxrN0n8fZmg/giphy.gif",
+      "http://media4.giphy.com/media/GUxSBC9W4JEze/giphy.gif",
+      "http://media4.giphy.com/media/WCxZJ6flSYqZO/giphy.gif",
+      "http://media1.giphy.com/media/zaZzhHg7asba8/giphy.gif",
+      "http://media1.giphy.com/media/vTgirRIQhjUje/giphy.gif",
+      "https://media1.giphy.com/media/TB6U4Sg9yQhP2/giphy.gif",
+      "http://media2.giphy.com/media/Pdi5TJoXB7LoY/giphy.gif",
+      "http://media2.giphy.com/media/C0JXp6ZaukPZK/giphy.gif",
+      "http://media0.giphy.com/media/HpCfZKbLIDF3W/giphy.gif",
+      "http://media3.giphy.com/media/uibrMNEDWRC7u/giphy.gif",
+      "http://media4.giphy.com/media/yK0NSSUOw8eKA/giphy.gif",
+      "http://media2.giphy.com/media/yLSX9yAzCyH1C/giphy.gif",
+      "http://media1.giphy.com/media/1QFyjvZ23MM8w/giphy.gif",
+      "https://media2.giphy.com/media/D23RjFVe6CKti/giphy.gif",
+      "http://media1.giphy.com/media/5X7ZAVPgO6RJm/giphy.gif",
+      "http://media4.giphy.com/media/52YTNmPpkX9bG/giphy.gif",
+      "http://media1.giphy.com/media/IPtx0LKMNRC48/giphy.gif",
+      "http://media4.giphy.com/media/X0Oqr1tOmgotW/giphy.gif",
+      "http://media2.giphy.com/media/3deZjafcO9CCs/giphy.gif",
+      "http://media0.giphy.com/media/OZOwm5mlrVtu/giphy.gif",
+      "https://media2.giphy.com/media/O2HIDHCeVHsti/giphy.gif",
+      "http://media2.giphy.com/media/MsMwNikaEM1Ow/giphy.gif",
+      "https://media1.giphy.com/media/HALpO9fv6d6ve/giphy.gif",
+      "http://media4.giphy.com/media/59q1aH44qeg6s/giphy.gif"
+    ]
+  },
+  "keywords": [
+    "want",
+    "films",
+    "Prateik",
+    "comes",
+    "take"
+  ],
+  "overall_sentiments": "negative",
+  "positive_sentiment_score": -0.24500753023190444,
+  "text_sentiments": {
+    "aggregate": {
+      "score": -0.24500753023190444,
+      "sentiment": "negative"
+    },
+    "positive": [
+      {
+        "original_text": "am able",
+        "sentiment": "able",
+        "topic": null,
+        "score": 0.38700997699243567,
+        "normalized_length": 7,
+        "normalized_text": "am able",
+        "original_length": 7
+      },
+      {
+        "original_text": "I am able",
+        "sentiment": "able",
+        "topic": null,
+        "score": 0.46377052838785104,
+        "normalized_length": 9,
+        "normalized_text": "I am able",
+        "original_length": 9
+      }
+    ],
+    "negative": [
+      {
+        "original_text": "pain and comes out of it",
+        "sentiment": "pain and comes out of",
+        "topic": null,
+        "score": -0.6748984055823062,
+        "normalized_length": 24,
+        "normalized_text": "pain and comes out of it",
+        "original_length": 24
+      },
+      {
+        "original_text": "struggle with drug",
+        "sentiment": "struggle with",
+        "topic": null,
+        "score": -0.6085845466635199,
+        "normalized_length": 18,
+        "normalized_text": "struggle with drug",
+        "original_length": 18
+      },
+      {
+        "original_text": "drug abuse has",
+        "sentiment": "abuse has",
+        "topic": "drug",
+        "score": -0.7923352042939829,
+        "normalized_length": 14,
+        "normalized_text": "drug abuse has",
+        "original_length": 14
+      }
+    ]
+  },
+  "useful_entities": [],
+  "image_text": "Aniuri Nayar Singh  on the look out. for films  with messages, as he  wants to help people through  the projects which he takes  up I have been brainstorming  nabout the kind of films which  nI want to take up and I have  ncome to the conclusion that I  nwant to do films with  nmessages.I want to play  nsomeone who undergoes  nsome sort of - struggle and  npain and comes out of it, as I  nfeel that these roles will work  nfor me at this stage, says  Prateik, who recently spoke  about his struggle with drug  abuse.  The 29-year-old actor adds  that he is not rigid when it  comes to genres. lam a fan  nof cinema, the genre has actor Prateik Babbar is  nnever mattered much to me.I  '  want to take up anything that  excites me. It can be a drama,  action or a comedy,   he says.  Prateik says that as of now  he is going through scripts  and preparing hintself to be  t. newark long schedules.  Prateik wants films  with important  messages  films, but it 's important for  me to reach a stage where I  am able to work continuously  for 20-25 hours a day. This  drug abuse has taken a toll on  my body and I need to get in  shape again. I am offered  films, but I want to be  absolutely ready. I am also  working on my craft so that  when I decide to take up a  film, I am able to give my best  to it,   he says. Prateiks last  release was Umrika in 2015.  He will be seen in a project in  the coming year.  i anjuri.nayar@hindusiantlmes.com  I want to play  someone who  undergoes some  sort of struggle  and pain, and  comes out of it.  PRATEIK BABBAR,  ACTOR ",
+  "negative_sentiments": [
+    "pain and comes out of ",
+    "struggle with ",
+    "abuse has"
+  ]
+}

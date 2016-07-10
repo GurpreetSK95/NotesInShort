@@ -29,8 +29,8 @@
         android:layout_margin="8dp"
         android:layout_marginBottom="10dp"
         android:layout_marginRight="10dp"
+        android:theme="@style/AppTheme"
         fab:menu_animationDelayPerItem="50"
-        fab:menu_backgroundColor="@android:color/transparent"
         fab:menu_buttonSpacing="0dp"
         fab:menu_colorNormal="@color/md_material_blue_600"
         fab:menu_colorPressed="@color/md_material_blue_800"
@@ -40,8 +40,8 @@
         fab:menu_fab_show_animation="@anim/show_from_bottom"
         fab:menu_fab_size="normal"
         fab:menu_icon="@mipmap/fab_icon"
-        fab:menu_labels_colorNormal="#333333"
-        fab:menu_labels_colorPressed="#444444"
+        fab:menu_labels_colorNormal="@color/colorPrimary"
+        fab:menu_labels_colorPressed="@color/colorPrimaryDark"
         fab:menu_labels_colorRipple="#66FFFFFF"
         fab:menu_labels_cornerRadius="3dp"
         fab:menu_labels_ellipsize="none"
@@ -89,4 +89,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
+
+
 </FrameLayout>
