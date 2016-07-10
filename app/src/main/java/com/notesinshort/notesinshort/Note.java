@@ -6,11 +6,11 @@ package com.notesinshort.notesinshort;
 public class Note {
 
     private String summary, image, keywords, entities;
-    int reaction;
+    String  reaction;
     public Note(){
     }
 
-    public Note(String summary, String image, int reaction, String keywords, String entities) {
+    public Note(String summary, String image, String reaction, String keywords, String entities) {
         this.summary = summary;
         this.image = image;
         this.reaction = reaction;
@@ -50,11 +50,11 @@ public class Note {
         this.entities = entities;
     }
 
-    public int getReaction() {
+    public String getReaction() {
         return reaction;
     }
 
-    public void setReaction(int reaction) {
+    public void setReaction(String reaction) {
         this.reaction = reaction;
     }
 }

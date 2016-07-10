@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView;
     ProgressDialog progress;
     File f;
-    String jsonResponse;
+    String summary, imageLink, sentiment, keywords;
     //a regular quality, if you declare with 50 is a worst quality and if you declare with 4000 is the better quality
     //only need to play with this variable (0 to 4000 ... or in other words, worst to better :D)
     private int RESIZE_PHOTO_PIXELS_PERCENTAGE = 1000;
@@ -180,58 +180,17 @@ public class MainActivity extends AppCompatActivity {
                                 .itemsCallback(new MaterialDialog.ListCallback() {
                                     @Override
                                     public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
-                                        //Toast.makeText(getApplicationContext(), which + " is selected!", Toast.LENGTH_SHORT).show();
-
-                                        //CHANGE API ENDPOINT HERE
-                                        /*File fi = new File(String.valueOf(Uri.fromFile(new File("sdcard/aaa.pdf"))));
-                                        uploadFile(Uri.parse("sdcard/aaa.pdf"));         //problem here
-                                        Uri uri = Uri.fromFile(fi);
-                                        FirebaseStorage storage = FirebaseStorage.getInstance();
-                                        StorageReference storageRef = storage.getReferenceFromUrl("gs://notesinshort-d46ec.appspot.com");
-                                        StorageReference oceansRef = storageRef.child("pdfs/"+uri.getLastPathSegment());
-                                        UploadTask uploadTask = oceansRef.putFile(uri);
-
-                                        uploadTask.addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception exception) {
-                                                // Handle unsuccessful uploads
-                                            }
-                                        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                            @Override
-                                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
-                                                Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                                                Log.d(TAG, "Download url for firebase pdf = " + downloadUrl);
-                                            }*/
-
                                         switch(which){
                                             case 0:
-                                                InputStream raw;
-                                                String everything = "";
+                                                String everything = Constants.dummyPdfJson;
                                                 try {
-                                                    raw = getApplicationContext().getAssets().open("dummypdf.json");
-                                                    BufferedReader br = new BufferedReader(new FileReader(String.valueOf(raw)));
-                                                    StringBuilder sb = new StringBuilder();
-                                                    String line = br.readLine();
-                                                    while (line != null) {
-                                                        sb.append(line);
-                                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                                                            sb.append(System.lineSeparator());
-                                                        }
-                                                        line = br.readLine();
-                                                    }
-                                                    everything = sb.toString();
-                                                    Log.v(TAG, everything);
-                                                    /*Scanner s = new Scanner(getResources().openRawResource(R.raw.dummypdf));
-                                                    try {
-                                                        while (s.hasNext()) {
-                                                            everything = s.next();
-                                                        }
-                                                    } finally {
-                                                        s.close();
-                                                        Log.v(TAG, everything);
-                                                    }*/
-                                                } catch (Exception e) {
+                                                    JSONObject obj = new JSONObject(everything);
+                                                    summary =  obj.getString("image_text").substring(0, 200);
+                                                    imageLink = obj.getString("relevant_images");
+                                                    sentiment = obj.getString("overall_sentiments");
+                                                    keywords = obj.getString("keywords");
+                                                    prepareMovieData(summary, imageLink, sentiment, keywords, "");
+                                                } catch (JSONException e) {
                                                     e.printStackTrace();
                                                 }
 
@@ -273,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void prepareMovieData(String summary, String image, int reaction, String keywords, String entities) {
+    public void prepareMovieData(String summary, String image, String reaction, String keywords, String entities) {
 
         Note movie = new Note(summary, image, reaction, keywords, entities);
         list.add(movie);
@@ -550,7 +509,7 @@ public class MainActivity extends AppCompatActivity {
 
                             String summary = c.getString("image_text");
                             String image = c.getString("relevant_images");
-                            int reaction = c.getInt("positive_sentiment_score");
+                            String reaction = c.getString("positive_sentiment_score");
                             String keywords = c.getString("keywords");
                             String useful_entities = c.getString("useful_entities");
 
