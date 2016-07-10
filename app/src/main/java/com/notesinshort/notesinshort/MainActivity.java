@@ -74,8 +74,6 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 
-
-
 /**
  * Created by mayank on 9/7/16.
  */
@@ -98,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     ProgressDialog progress;
     File f;
     TextToSpeech t1;
+    ImageView imageViewRow;
     String summary, imageLink, sentiment, keywords;
     //a regular quality, if you declare with 50 is a worst quality and if you declare with 4000 is the better quality
     //only need to play with this variable (0 to 4000 ... or in other words, worst to better :D)
@@ -127,9 +126,11 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                 //Toast.makeText(getApplicationContext(), movie.getSummary() + " is selected!", Toast.LENGTH_SHORT).show();
                 boolean wrapInScrollView = true;
                 new MaterialDialog.Builder(MainActivity.this)
+                        //.setMessage(summary)
+                        //.content(summary)
+                        //.message(summary)
                         .title("Note")
                         .customView(R.layout.popup_dialog, wrapInScrollView)
-
                         .positiveText("Done")
                         .show();
             }
@@ -151,6 +152,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         camera = (FloatingActionButton) findViewById(R.id.camera);
         choose_document = (FloatingActionButton) findViewById(R.id.choose_document);
         imageView = (ImageView) findViewById(R.id.imageView);
+        //imageViewRow= (ImageView) findViewById(R.id.imageViewRow);
         //view = (LinearLayout) findViewById(R.id.view);
 
         getPermissionToSaveImage();
@@ -215,11 +217,11 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                         try {
                                             JSONObject obj = new JSONObject(everything);
                                             summary =  obj.getString("image_text");
-                                            String summaryTemp =  obj.getString("image_text").substring(0, 200);
+                                            String summaryTemp =  obj.getString("image_text").substring(0,200);
                                             imageLink = obj.getString("relevant_images");
                                             sentiment = obj.getString("overall_sentiments");
                                             keywords = obj.getString("keywords");
-                                            prepareMovieData(summaryTemp, imageLink, sentiment, keywords, "");
+                                            prepareMovieData(summaryTemp, summary, imageLink, sentiment, keywords, "");
                                         } catch (JSONException e) {
                                             e.printStackTrace();
                                         }
@@ -269,9 +271,9 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         }
     }
 
-    public void prepareMovieData(String summary, String image, String reaction, String keywords, String entities) {
+    public void prepareMovieData(String summary, String text, String image, String reaction, String keywords, String entities) {
 
-        Note movie = new Note(summary, image, reaction, keywords, entities);
+        Note movie = new Note(summary, text, image, reaction, keywords, entities);
         list.add(movie);
         adapter.notifyDataSetChanged();
 
@@ -517,9 +519,10 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                         for (int i = 0; i < contacts.length(); i++) {
                             JSONObject c = contacts.getJSONObject(i);
 
-                            String summary = c.getString("image_text");
+                            String text = c.getString("image_text");
+                            String summary = c.getString("text_summary");
                             String image = c.getString("relevant_images");
-                            String reaction = c.getString("positive_sentiment_score");
+                            String reaction = c.getString("overall_sentiment");
                             String keywords = c.getString("keywords");
                             String useful_entities = c.getString("useful_entities");
 
@@ -535,7 +538,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                             // adding each child node to HashMap key => value
 
                             // adding contact to contact list
-                            prepareMovieData(summary, image, reaction, keywords, useful_entities);
+                            prepareMovieData(summary, text, image, reaction, keywords, useful_entities);
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

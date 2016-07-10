@@ -1,20 +1,23 @@
 package com.notesinshort.notesinshort;
 
+import android.widget.ImageView;
+
 /**
  * Created by Gurpreet on 09/07/16.
  */
 public class Note {
 
-    private String summary, image, keywords, entities;
+    private String summary, image, keywords, entities, text;
     String  reaction;
     public Note(){
     }
 
-    public Note(String summary, String image, String reaction, String keywords, String entities) {
+    public Note(String summary, String text, String image, String reaction, String keywords, String entities) {
         this.summary = summary;
         this.image = image;
         this.reaction = reaction;
         this.entities = entities;
+        this.text = text;
         this.keywords = keywords;
     }
 
@@ -24,6 +27,14 @@ public class Note {
 
     public void setSummary(String summary) {
         this.summary = summary;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String summary) {
+        this.text = text;
     }
 
     public String getImage() {

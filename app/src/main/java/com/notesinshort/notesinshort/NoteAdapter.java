@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -30,8 +31,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.MyViewHolder>{
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Note movie = list.get(position);
         holder.title.setText(movie.getSummary());
-        //holder.genre.setText(movie.getGenre());
-        //holder.year.setText(movie.getYear());
+        holder.keywords.setText("Keywords: "+movie.getKeywords());
+//        holder.sentiment.setText(movie.getReaction());
     }
 
     @Override
@@ -41,13 +42,13 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.MyViewHolder>{
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView title, genre, year;
-
+        public TextView title, keywords, sentiment;
+        public ImageView iv;
         public MyViewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.title);
-            //genre = (TextView) itemView.findViewById(R.id.genre);
-            //year = (TextView) itemView.findViewById(R.id.year);
+            keywords = (TextView) itemView.findViewById(R.id.keywords);
+            sentiment = (TextView) itemView.findViewById(R.id.sentiment);
         }
 
     }
