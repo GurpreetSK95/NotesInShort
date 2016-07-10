@@ -17,7 +17,7 @@
         android:background="#F8BBD0"
         android:elevation="8dp"
         android:gravity="center"
-        android:minHeight="150dp"
+        android:minHeight="120dp"
         android:padding="8dp"
         card_view:cardCornerRadius="4dp">
 

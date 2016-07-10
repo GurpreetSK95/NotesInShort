@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -57,6 +58,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Scanner;
 
 import dmax.dialog.SpotsDialog;
@@ -93,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView;
     ProgressDialog progress;
     File f;
+    TextToSpeech t1;
     String summary, imageLink, sentiment, keywords;
     //a regular quality, if you declare with 50 is a worst quality and if you declare with 4000 is the better quality
     //only need to play with this variable (0 to 4000 ... or in other words, worst to better :D)
@@ -122,8 +125,9 @@ public class MainActivity extends AppCompatActivity {
                 //Toast.makeText(getApplicationContext(), movie.getSummary() + " is selected!", Toast.LENGTH_SHORT).show();
                 boolean wrapInScrollView = true;
                 new MaterialDialog.Builder(MainActivity.this)
-                        .title(summary)
+                        .title("Note")
                         .customView(R.layout.popup_dialog, wrapInScrollView)
+
                         .positiveText("Done")
                         .show();
             }
@@ -136,6 +140,15 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }));
+
+        t1 = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t1.setLanguage(Locale.UK);
+                }
+            }
+        });
 
         //prepareMovieData();
 
@@ -162,7 +175,6 @@ public class MainActivity extends AppCompatActivity {
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 openCamera();
             }
         });
@@ -244,6 +256,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void TTS(View view){
 
+        //Toast.makeText(getApplicationContext(), summary,Toast.LENGTH_SHORT).show();
+        t1.speak(summary, TextToSpeech.QUEUE_FLUSH, null);
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(t1 !=null){
+            t1.stop();
+            t1.shutdown();
+        }
     }
 
     public void prepareMovieData(String summary, String image, String reaction, String keywords, String entities) {
@@ -255,9 +279,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openCamera() {
-
         magicalCamera.takePhoto();
-
     }
 
     public void shareIt(View view){
