@@ -45,6 +45,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import dmax.dialog.SpotsDialog;
 import okhttp3.MediaType;
@@ -54,9 +55,11 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Query;
 
 
 /**
@@ -80,11 +83,10 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView;
     ProgressDialog progress;
     File f;
+    URLUploadService urlUploadService;
     //a regular quality, if you declare with 50 is a worst quality and if you declare with 4000 is the better quality
     //only need to play with this variable (0 to 4000 ... or in other words, worst to better :D)
     private int RESIZE_PHOTO_PIXELS_PERCENTAGE = 1000;
-
-
     private File root;
     private ArrayList<File> fileList = new ArrayList<File>();
     private ArrayList<String> files = new ArrayList<String>();
@@ -289,7 +291,7 @@ public class MainActivity extends AppCompatActivity {
             StorageReference storageRef = storage.getReferenceFromUrl("gs://notesinshort-d46ec.appspot.com");
 
             Uri u = Uri.fromFile(f);
-            StorageReference riversRef = storageRef.child("images/"+u.getLastPathSegment());
+            StorageReference riversRef = storageRef.child("images/" + u.getLastPathSegment());
             UploadTask uploadTask = riversRef.putFile(u);
 
             // Register observers to listen for when the download is done or if it fails
@@ -306,9 +308,9 @@ public class MainActivity extends AppCompatActivity {
 
                     Log.d(TAG, "Download url for firebase image = " + downloadUrl);
 
+
                 }
             });
-
 
 
         } else {
@@ -422,6 +424,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
+                navigateToLogin();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -437,8 +440,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void uploadFile(Uri fileUri) {
         // create upload service client
-        FileUploadService service =
-                ServiceGenerator.createService(FileUploadService.class);
+        URLUploadService service =
+                ServiceGenerator.createService(URLUploadService.class);
 
         // https://github.com/iPaulPro/aFileChooser/blob/master/aFileChooser/src/com/ipaulpro/afilechooser/utils/FileUtils.java
         // use the FileUtils to get the actual file by uri
@@ -467,6 +470,9 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<ResponseBody> call,
                                    Response<ResponseBody> response) {
                 Log.v("Upload", "success");
+
+                Log.d(TAG, "response = " + response.raw().toString());
+
             }
 
             @Override
@@ -482,11 +488,14 @@ public class MainActivity extends AppCompatActivity {
         void onLongClick(View view, int position);
     }
 
-    public interface FileUploadService {
+    public interface URLUploadService {
         @Multipart
         @POST("upload")
         Call<ResponseBody> upload(@Part("description") RequestBody description,
                                   @Part MultipartBody.Part file);
+
+        @GET("/api/notes")
+        void getMyThing(@Query("download_url") Uri param1, Callback<List<NotesData>> callback);  // Asynchronous
     }
 
     public static class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {

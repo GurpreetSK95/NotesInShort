@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="gurpreetsk.me.notesinshort.MainActivity"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:fab="gurpreetsk.me.notesinshort.MainActivity"
     android:fitsSystemWindows="true"
-    tools:context="gurpreetsk.me.notesinshort.MainActivity">
+    tools:context="com.notesinshort.notesinshort.MainActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -33,14 +32,14 @@
         fab:menu_animationDelayPerItem="50"
         fab:menu_backgroundColor="@android:color/transparent"
         fab:menu_buttonSpacing="0dp"
-        fab:menu_colorNormal="#DA4336"
-        fab:menu_colorPressed="#E75043"
+        fab:menu_colorNormal="@color/md_material_blue_600"
+        fab:menu_colorPressed="@color/md_material_blue_800"
         fab:menu_colorRipple="#99FFFFFF"
         fab:menu_fab_hide_animation="@anim/hide_to_bottom"
         fab:menu_fab_label="Options"
         fab:menu_fab_show_animation="@anim/show_from_bottom"
         fab:menu_fab_size="normal"
-        fab:menu_icon="@mipmap/fab"
+        fab:menu_icon="@mipmap/fab_icon"
         fab:menu_labels_colorNormal="#333333"
         fab:menu_labels_colorPressed="#444444"
         fab:menu_labels_colorRipple="#66FFFFFF"
@@ -71,6 +70,7 @@
             android:id="@+id/camera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@mipmap/ic_camera"
             fab:fab_label="Camera"
             fab:fab_size="mini" />
 
@@ -78,6 +78,7 @@
             android:id="@+id/choose_document"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@mipmap/ic_note_add"
             fab:fab_label="Choose document"
             fab:fab_size="mini" />
 
