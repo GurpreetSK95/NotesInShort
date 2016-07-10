@@ -27,7 +27,10 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.frosquivel.magicalcamera.MagicalCamera;
 import com.github.clans.fab.FloatingActionButton;
@@ -53,7 +56,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import dmax.dialog.SpotsDialog;
 import okhttp3.MediaType;
@@ -62,7 +67,6 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -93,7 +97,10 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     TextToSpeech t1;
     RequestQueue MyRequestQueue;
     int image_number = 0;
-    String url = "localhost:6000/api/notes/";
+    //String url_api = "localhost:6000/api/notes/";
+    String url_api = "http://172.16.22.149:5000/api/notes";
+    StringRequest MyStringRequest;
+    String download_url;
     //a regular quality, if you declare with 50 is a worst quality and if you declare with 4000 is the better quality
     //only need to play with this variable (0 to 4000 ... or in other words, worst to better :D)
     private int RESIZE_PHOTO_PIXELS_PERCENTAGE = 1000;
@@ -191,8 +198,8 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                 .itemsCallback(new MaterialDialog.ListCallback() {
                                     @Override
                                     public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
-                                        String everything="";
-                                        switch(which){
+                                        String everything = "";
+                                        switch (which) {
                                             case 0:
                                                 everything = Constants.trumpJson;
                                                 break;
@@ -205,12 +212,13 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                             case 3:
                                                 everything = Constants.dummyPdfJson;
                                                 break;
-                                            default: everything = Constants.dummyPdfJson;
+                                            default:
+                                                everything = Constants.dummyPdfJson;
                                         }
                                         try {
                                             JSONObject obj = new JSONObject(everything);
-                                            summary =  obj.getString("image_text");
-                                            String summaryTemp =  obj.getString("image_text").substring(0, 200);
+                                            summary = obj.getString("image_text");
+                                            String summaryTemp = obj.getString("image_text").substring(0, 200);
                                             imageLink = obj.getString("relevant_images");
                                             sentiment = obj.getString("overall_sentiments");
                                             keywords = obj.getString("keywords");
@@ -218,7 +226,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                         } catch (JSONException e) {
                                             e.printStackTrace();
 
-                                            try {
+                                            /*try {
                                                 JSONObject jsonObject = new JSONObject(loadJSONFromAsset());
                                                 summary = jsonObject.getString("image_text");
                                                 String summaryTemp = jsonObject.getString("image_text").substring(0, 200);
@@ -229,7 +237,33 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
                                             } catch (JSONException e1) {
                                                 e1.printStackTrace();
-                                            }
+                                            }*/
+
+                                            StringRequest MyStringRequest = new StringRequest(Request.Method.POST, url_api, new com.android.volley.Response.Listener<String>() {
+                                                @Override
+                                                public void onResponse(String response) {
+                                                    //This code is executed if the server responds, whether or not the response contains data.
+                                                    //The String 'response' contains the server's response.
+                                                    Log.d(TAG, "Inside on response method. Response = " + response);
+                                                }
+                                            }, new com.android.volley.Response.ErrorListener() { //Create an error listener to handle errors appropriately.
+                                                @Override
+                                                public void onErrorResponse(VolleyError error) {
+                                                    //This code is executed if there is an error.
+                                                    Log.d(TAG, "Inside on error response method. Error = " + error);
+                                                }
+                                            }) {
+                                                protected Map<String, String> getParams() {
+                                                    Map<String, String> MyData = new HashMap<String, String>();
+                                                    MyData.put("download_url", download_url); //Add the data you'd like to send to the server.
+
+                                                    Log.d(TAG, "Data = " + MyData.toString());
+
+                                                    return MyData;
+                                                }
+                                            };
+
+                                            MyRequestQueue.add(MyStringRequest);
 
 
                                         }
@@ -336,7 +370,8 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
         if (writePhotoFile(magicalCamera.getMyPhoto(), "Test", "NotesInShort", MagicalCamera.JPEG, true)) {
             Log.d(TAG, "File has been saved.");
-            imageView.setImageBitmap(magicalCamera.getMyPhoto());
+            //imageView.setImageBitmap(magicalCamera.getMyPhoto());
+            Log.d(TAG, "Image has been set to bitmap");
             uploadFile(Uri.parse("file://" + f.getAbsolutePath()));
 
             FirebaseStorage storage = FirebaseStorage.getInstance();
@@ -357,6 +392,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
                     Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                    download_url = taskSnapshot.getDownloadUrl().toString();
                     Log.d(TAG, "Download url for firebase image = " + downloadUrl);
                 }
             });
@@ -433,9 +469,12 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.logout:
+            case R.id.logout: {
                 FirebaseAuth.getInstance().signOut();
+                Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(i);
                 return true;
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -476,7 +515,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         Call<ResponseBody> call = service.upload(description, body);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {
                 Log.v("Upload", "success");
                 String json = response.raw().toString();
                 if (json != null) {
