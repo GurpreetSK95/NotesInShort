@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">NotesInShorts</string>
 
+    <string name="app_label_main">Notes In Short</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>

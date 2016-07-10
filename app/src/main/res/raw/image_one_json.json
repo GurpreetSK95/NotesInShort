@@ -1,0 +1,174 @@
+{
+  "positive_sentiments": [],
+  "relevant_images": {
+    "bing_results": [
+      "http://indiaopines.com/wp-content/uploads/2015/08/burhan-wani-gang.jpg",
+      "http://static.dnaindia.com/sites/default/files/2015/11/11/394188-burhan.jpg",
+      "http://media.indiatimes.in/media/content/2016/Jul/kashmir-protests_1468066754.jpg",
+      "http://indiaopines.com/wp-content/uploads/2015/08/hizbul.jpg",
+      "http://media.indiatimes.in/media/content/2016/Jul/burhan-funeral_1468066714.jpg",
+      "http://kashmirreader.com/wp-content/uploads/2016/07/Clashes-erupted-in-several-parts-of-Srinagar-over-the-killing-of-Burhan-Wani.jpg",
+      "http://www.thehindu.com/multimedia/dynamic/02926/JK_Unrest_2926346f.jpg",
+      "http://www.kashmirlife.net/wp-content/uploads/2016/07/Body-of-Burhan.jpg",
+      "http://s3.scoopwhoop.com/anj/militnacy/953251840.jpg",
+      "http://data1.ibtimes.co.in/en/full/612846/wani-kashmir-pai-kashmir-encounter-militancy-barkha-dutt-twitter.jpg"
+    ],
+    "twitter_results": [],
+    "twitter_media_results": [],
+    "giphy_results": [
+      "https://media2.giphy.com/media/lUHv7I4LuES9W/giphy.gif",
+      "http://media4.giphy.com/media/O1DiauBlCe7Cw/giphy.gif",
+      "http://media4.giphy.com/media/jIZzG8jLSRt3W/giphy.gif",
+      "http://media3.giphy.com/media/VKbzxMjNXYS76/giphy.gif",
+      "https://media1.giphy.com/media/tLxXEHdIw5Ays/giphy.gif",
+      "http://media0.giphy.com/media/pKDgfxL0Aru3C/giphy.gif",
+      "http://media3.giphy.com/media/xXQ5JU1EOdvaw/giphy.gif",
+      "http://media3.giphy.com/media/12gEPHqUaT38s0/giphy.gif",
+      "https://media2.giphy.com/media/GjH2pCuw7ynfy/giphy.gif",
+      "https://media0.giphy.com/media/Ni0LOW9pgtwWY/giphy.gif",
+      "http://media0.giphy.com/media/148zDM1CSUcndu/giphy.gif",
+      "http://media4.giphy.com/media/3nBvlxW1sb1ny/giphy.gif",
+      "http://media0.giphy.com/media/p0o4x4pow7j6U/giphy.gif",
+      "http://media4.giphy.com/media/QEF9ANph88kEw/giphy.gif",
+      "http://media0.giphy.com/media/mctacDQ223dHq/giphy.gif",
+      "https://media0.giphy.com/media/1rX4M6oZSwVXi/giphy.gif",
+      "https://media1.giphy.com/media/hebel1YnTAac0/giphy.gif",
+      "https://media0.giphy.com/media/1S2PquLIWebGU/giphy.gif",
+      "https://media1.giphy.com/media/10ZrLDVFj2hIys/giphy.gif",
+      "https://media1.giphy.com/media/8mZzxwTWtjpRe/giphy.gif",
+      "https://media0.giphy.com/media/7Q3vxM4WK5wkM/giphy.gif",
+      "https://media1.giphy.com/media/Tgc9Oi0nK5qw/giphy.gif",
+      "https://media2.giphy.com/media/TVt91pzQ8kpwY/giphy.gif",
+      "http://media4.giphy.com/media/7gyYG981VUwGA/giphy.gif",
+      "http://media3.giphy.com/media/cAvKgUZ7tDmnu/giphy.gif"
+    ]
+  },
+  "keywords": [
+    "Burhan",
+    "Wani",
+    "killing",
+    "Kashmir",
+    "pages"
+  ],
+  "overall_sentiments": "negative",
+  "positive_sentiment_score": -0.6971155556005643,
+  "text_sentiments": {
+    "aggregate": {
+      "score": -0.6971155556005643,
+      "sentiment": "negative"
+    },
+    "positive": [],
+    "negative": [
+      {
+        "original_text": "WANI Crowds defy curfew to turn",
+        "sentiment": "defy",
+        "topic": "WANI Crowds",
+        "score": -0.6748984055823062,
+        "normalized_length": 31,
+        "normalized_text": "WANI Crowds defy curfew to turn",
+        "original_length": 31
+      },
+      {
+        "original_text": "were killed and scores wound",
+        "sentiment": "were killed and scores",
+        "topic": "wound",
+        "score": -0.7923352042939829,
+        "normalized_length": 28,
+        "normalized_text": "were killed and scores wound",
+        "original_length": 28
+      },
+      {
+        "original_text": "killing of top Hizbul",
+        "sentiment": "killing of top",
+        "topic": null,
+        "score": -0.709336851506547,
+        "normalized_length": 21,
+        "normalized_text": "killing of top Hizbul",
+        "original_length": 21
+      },
+      {
+        "original_text": "sparking fears",
+        "sentiment": "fears",
+        "topic": null,
+        "score": -0.5734506634410159,
+        "normalized_length": 14,
+        "normalized_text": "sparking fears",
+        "original_length": 14
+      },
+      {
+        "original_text": "mass wailing",
+        "sentiment": "wailing",
+        "topic": "mass",
+        "score": -0.709336851506547,
+        "normalized_length": 12,
+        "normalized_text": "mass wailing",
+        "original_length": 12
+      },
+      {
+        "original_text": "angry anti",
+        "sentiment": "angry",
+        "topic": "anti",
+        "score": -0.6280145725181376,
+        "normalized_length": 10,
+        "normalized_text": "angry anti",
+        "original_length": 10
+      },
+      {
+        "original_text": "you kill",
+        "sentiment": "kill",
+        "topic": null,
+        "score": -0.7923352042939829,
+        "normalized_length": 8,
+        "normalized_text": "you kill",
+        "original_length": 8
+      },
+      {
+        "original_text": "violent protests",
+        "sentiment": "violent",
+        "topic": "protests",
+        "score": -0.6280145725181376,
+        "normalized_length": 16,
+        "normalized_text": "violent protests",
+        "original_length": 16
+      },
+      {
+        "original_text": "already troubled region",
+        "sentiment": "already troubled",
+        "topic": null,
+        "score": -0.6710980260510025,
+        "normalized_length": 23,
+        "normalized_text": "already troubled region",
+        "original_length": 23
+      },
+      {
+        "original_text": "riot gear",
+        "sentiment": "riot",
+        "topic": null,
+        "score": -0.7923352042939829,
+        "normalized_length": 9,
+        "normalized_text": "riot gear",
+        "original_length": 9
+      }
+    ]
+  },
+  "useful_entities": [
+    {
+      "image_link": "https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg",
+      "name": "India",
+      "wikipedia_link": "http://en.wikipedia.org/wiki/India"
+    }
+  ],
+  "image_text": "SRINAGAR: At least eight people were killed and scores wounded in southern Kashmir on Saturday as violence erupted over the killing of top Hizbul Mujahideen commander Burhan Wani, sparking fears of an upsurge in militancy in the region. ' Wani's body was buried in his hometown Tral amid mass wailing and angry anti- India slogans, a day after security forces gunned down the 21-year-old militant who was the face of militancy in Kashmir over the last five years. Witnesses said at least twomilitants fired pistol ; rounds in the air to salute their fallen commander. \"Tum kitney Burhan maroge, har ghar se Burhan nikley ga (How many Burhans will you kill, every house in Kashmir will produce one),\" chanted the crowd, carrying Wani's body wrapped in a Pakistani flag. Fearing that the killing could lead to violent protests in the already troubled region, thousands of armed police and paramilitary soldiers in riot gear fanned out across most towns and villages in the region and drove through neighborhoods, warning residents to stay indoors. com-mum on PAGE 5 ammo REPORTS on pg",
+  "negative_sentiments": [
+    "defy",
+    "were killed and scores",
+    "killing of top",
+    "fears",
+    "wailing",
+    "angry",
+    "kill",
+    "violent",
+    "already troubled",
+    "riot"
+  ]
+}
